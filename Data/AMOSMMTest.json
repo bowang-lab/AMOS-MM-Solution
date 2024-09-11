@@ -1,0 +1,4004 @@
+{
+    "validation": [
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7386.nii.gz",
+            "spacing": [
+                -0.6757810115814209,
+                0.6757810115814209,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7386.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7386.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7373.nii.gz",
+            "spacing": [
+                -0.70703125,
+                0.70703125,
+                1.9999980926513672
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7373.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7373.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7368.nii.gz",
+            "spacing": [
+                -0.6796875,
+                0.6796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7368.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7368.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7362.nii.gz",
+            "spacing": [
+                -0.6015625,
+                0.6015625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7362.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7362.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7360.nii.gz",
+            "spacing": [
+                -0.53125,
+                0.53125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7360.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7360.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7359.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7359.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7359.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7341.nii.gz",
+            "spacing": [
+                -0.623046875,
+                0.623046875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7341.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7341.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7336.nii.gz",
+            "spacing": [
+                -0.5546875,
+                0.5546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7336.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7336.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7325.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7325.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7325.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7318.nii.gz",
+            "spacing": [
+                -0.71875,
+                0.71875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7318.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7318.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7317.nii.gz",
+            "spacing": [
+                -0.591796875,
+                0.591796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7317.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7317.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7305.nii.gz",
+            "spacing": [
+                -0.671875,
+                0.671875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7305.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7305.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7295.nii.gz",
+            "spacing": [
+                -0.7304689884185791,
+                0.7304689884185791,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7295.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7295.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7289.nii.gz",
+            "spacing": [
+                -0.5859375,
+                0.5859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7289.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7289.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7286.nii.gz",
+            "spacing": [
+                -0.6835939884185791,
+                0.6835939884185791,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7286.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7286.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7277.nii.gz",
+            "spacing": [
+                -0.75,
+                0.75,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7277.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7277.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7276.nii.gz",
+            "spacing": [
+                -0.607421875,
+                0.607421875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7276.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7276.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7263.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7263.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7263.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7249.nii.gz",
+            "spacing": [
+                -0.595703125,
+                0.595703125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7249.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7249.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7248.nii.gz",
+            "spacing": [
+                -0.65625,
+                0.65625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7248.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7248.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7240.nii.gz",
+            "spacing": [
+                -0.75,
+                0.75,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7240.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7240.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7237.nii.gz",
+            "spacing": [
+                -0.724609375,
+                0.724609375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7237.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7237.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7230.nii.gz",
+            "spacing": [
+                -0.70703125,
+                0.70703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7230.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7230.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7228.nii.gz",
+            "spacing": [
+                -0.9082030057907104,
+                0.9082030057907104,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7228.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7228.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7225.nii.gz",
+            "spacing": [
+                -0.681640625,
+                0.681640625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7225.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7225.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7224.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7224.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7224.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7219.nii.gz",
+            "spacing": [
+                -0.6035159826278687,
+                0.6035159826278687,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7219.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7219.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7218.nii.gz",
+            "spacing": [
+                -0.7421875,
+                0.7421875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7218.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7218.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7209.nii.gz",
+            "spacing": [
+                -0.669921875,
+                0.669921875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7209.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7209.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7191.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7191.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7191.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7173.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7173.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7173.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7166.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7166.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7166.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7164.nii.gz",
+            "spacing": [
+                -0.619140625,
+                0.619140625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7164.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7164.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7152.nii.gz",
+            "spacing": [
+                -0.716796875,
+                0.716796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7152.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7152.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7145.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7145.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7145.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7130.nii.gz",
+            "spacing": [
+                -0.810546875,
+                0.810546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7130.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7130.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7127.nii.gz",
+            "spacing": [
+                -0.671875,
+                0.671875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7127.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7127.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7118.nii.gz",
+            "spacing": [
+                -0.599609375,
+                0.599609375,
+                1.2999267578125
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7118.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7118.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7094.nii.gz",
+            "spacing": [
+                -0.7832030057907104,
+                0.7832030057907104,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7094.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7094.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7081.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7081.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7081.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7079.nii.gz",
+            "spacing": [
+                -0.619140625,
+                0.619140625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7079.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7079.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7067.nii.gz",
+            "spacing": [
+                -0.654296875,
+                0.654296875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7067.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7067.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7064.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7064.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7064.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7045.nii.gz",
+            "spacing": [
+                -0.6484375,
+                0.6484375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7045.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7045.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7041.nii.gz",
+            "spacing": [
+                -0.677734375,
+                0.677734375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7041.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7041.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7039.nii.gz",
+            "spacing": [
+                -0.7265625,
+                0.7265625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7039.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7039.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7035.nii.gz",
+            "spacing": [
+                -0.7480469942092896,
+                0.7480469942092896,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7035.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7035.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7026.nii.gz",
+            "spacing": [
+                -0.6582030057907104,
+                0.6582030057907104,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7026.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7026.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7020.nii.gz",
+            "spacing": [
+                -0.548828125,
+                0.548828125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7020.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7020.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7009.nii.gz",
+            "spacing": [
+                -0.634765625,
+                0.634765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7009.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7009.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_7002.nii.gz",
+            "spacing": [
+                -0.6015625,
+                0.6015625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_7002.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_7002.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6996.nii.gz",
+            "spacing": [
+                -0.62890625,
+                0.62890625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6996.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6996.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6994.nii.gz",
+            "spacing": [
+                -0.59375,
+                0.59375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6994.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6994.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6988.nii.gz",
+            "spacing": [
+                -0.64453125,
+                0.64453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6988.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6988.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6987.nii.gz",
+            "spacing": [
+                -0.6484375,
+                0.6484375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6987.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6987.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6984.nii.gz",
+            "spacing": [
+                -0.609375,
+                0.609375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6984.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6984.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6969.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6969.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6969.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6966.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6966.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6966.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6964.nii.gz",
+            "spacing": [
+                -0.693359375,
+                0.693359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6964.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6964.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6962.nii.gz",
+            "spacing": [
+                -0.65625,
+                0.65625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6962.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6962.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6960.nii.gz",
+            "spacing": [
+                -0.70703125,
+                0.70703125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6960.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6960.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6954.nii.gz",
+            "spacing": [
+                -0.611328125,
+                0.611328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6954.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6954.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6950.nii.gz",
+            "spacing": [
+                -0.62109375,
+                0.62109375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6950.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6950.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6933.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                5.000000953674316
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6933.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6933.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6922.nii.gz",
+            "spacing": [
+                -0.666015625,
+                0.666015625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6922.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6922.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6910.nii.gz",
+            "spacing": [
+                -0.67578125,
+                0.67578125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6910.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6910.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6905.nii.gz",
+            "spacing": [
+                -0.638671875,
+                0.638671875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6905.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6905.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6897.nii.gz",
+            "spacing": [
+                -0.65234375,
+                0.65234375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6897.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6897.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6893.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6893.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6893.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6890.nii.gz",
+            "spacing": [
+                -0.701171875,
+                0.701171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6890.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6890.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6881.nii.gz",
+            "spacing": [
+                -0.638671875,
+                0.638671875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6881.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6881.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6878.nii.gz",
+            "spacing": [
+                -0.6953125,
+                0.6953125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6878.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6878.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6870.nii.gz",
+            "spacing": [
+                -0.62890625,
+                0.62890625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6870.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6870.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6869.nii.gz",
+            "spacing": [
+                -0.58203125,
+                0.58203125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6869.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6869.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6859.nii.gz",
+            "spacing": [
+                -0.7402340173721313,
+                0.7402340173721313,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6859.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6859.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6846.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6846.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6846.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6835.nii.gz",
+            "spacing": [
+                -0.576171875,
+                0.576171875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6835.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6835.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6832.nii.gz",
+            "spacing": [
+                -0.69921875,
+                0.69921875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6832.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6832.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6823.nii.gz",
+            "spacing": [
+                -0.603515625,
+                0.603515625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6823.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6823.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6815.nii.gz",
+            "spacing": [
+                -0.6328125,
+                0.6328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6815.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6815.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6805.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6805.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6805.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6803.nii.gz",
+            "spacing": [
+                -0.642578125,
+                0.642578125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6803.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6803.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6793.nii.gz",
+            "spacing": [
+                -0.7148439884185791,
+                0.7148439884185791,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6793.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6793.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6790.nii.gz",
+            "spacing": [
+                -0.7148439884185791,
+                0.7148439884185791,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6790.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6790.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6780.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6780.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6780.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6772.nii.gz",
+            "spacing": [
+                -0.7773439884185791,
+                0.7773439884185791,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6772.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6772.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6751.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6751.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6751.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6750.nii.gz",
+            "spacing": [
+                -0.64453125,
+                0.64453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6750.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6750.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6741.nii.gz",
+            "spacing": [
+                -0.80859375,
+                0.80859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6741.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6741.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6732.nii.gz",
+            "spacing": [
+                -0.67578125,
+                0.67578125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6732.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6732.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6662.nii.gz",
+            "spacing": [
+                -0.7265625,
+                0.7265625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6662.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6662.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6648.nii.gz",
+            "spacing": [
+                -0.62109375,
+                0.62109375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6648.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6648.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6619.nii.gz",
+            "spacing": [
+                -0.7949219942092896,
+                0.7949219942092896,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6619.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6619.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6605.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6605.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6605.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6596.nii.gz",
+            "spacing": [
+                -0.580078125,
+                0.580078125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6596.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6596.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6587.nii.gz",
+            "spacing": [
+                -0.7597659826278687,
+                0.7597659826278687,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6587.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6587.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6586.nii.gz",
+            "spacing": [
+                -0.7988280057907104,
+                0.7988280057907104,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6586.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6586.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6543.nii.gz",
+            "spacing": [
+                -0.59765625,
+                0.59765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6543.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6543.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6540.nii.gz",
+            "spacing": [
+                -0.6640625,
+                0.6640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6540.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6540.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6528.nii.gz",
+            "spacing": [
+                -0.640625,
+                0.640625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6528.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6528.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6516.nii.gz",
+            "spacing": [
+                -0.6484379768371582,
+                0.6484379768371582,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6516.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6516.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6492.nii.gz",
+            "spacing": [
+                -0.677734375,
+                0.677734375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6492.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6492.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6475.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6475.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6475.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6443.nii.gz",
+            "spacing": [
+                -0.8222659826278687,
+                0.8222659826278687,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6443.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6443.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6439.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6439.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6439.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6437.nii.gz",
+            "spacing": [
+                -0.6796879768371582,
+                0.6796879768371582,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6437.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6437.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6436.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6436.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6436.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6424.nii.gz",
+            "spacing": [
+                -0.5976560115814209,
+                0.5976560115814209,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6424.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6424.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6422.nii.gz",
+            "spacing": [
+                -0.6484375,
+                0.6484375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6422.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6422.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6419.nii.gz",
+            "spacing": [
+                -0.62109375,
+                0.62109375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6419.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6419.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6394.nii.gz",
+            "spacing": [
+                -0.548828125,
+                0.548828125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6394.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6394.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6370.nii.gz",
+            "spacing": [
+                -0.673828125,
+                0.673828125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6370.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6370.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6345.nii.gz",
+            "spacing": [
+                -0.658203125,
+                0.658203125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6345.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6345.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6343.nii.gz",
+            "spacing": [
+                -0.732421875,
+                0.732421875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6343.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6343.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6327.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6327.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6327.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6273.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6273.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6273.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6270.nii.gz",
+            "spacing": [
+                -0.720703125,
+                0.720703125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6270.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6270.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6226.nii.gz",
+            "spacing": [
+                -0.70703125,
+                0.70703125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6226.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6226.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6225.nii.gz",
+            "spacing": [
+                -0.634765625,
+                0.634765625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6225.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6225.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6210.nii.gz",
+            "spacing": [
+                -0.634765625,
+                0.634765625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6210.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6210.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6196.nii.gz",
+            "spacing": [
+                -0.609375,
+                0.609375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6196.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6196.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6194.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6194.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6194.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6186.nii.gz",
+            "spacing": [
+                -0.63671875,
+                0.63671875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6186.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6186.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6151.nii.gz",
+            "spacing": [
+                -0.712890625,
+                0.712890625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6151.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6151.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6149.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6149.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6149.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6144.nii.gz",
+            "spacing": [
+                -0.640625,
+                0.640625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6144.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6144.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6131.nii.gz",
+            "spacing": [
+                -0.6484375,
+                0.6484375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6131.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6131.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6127.nii.gz",
+            "spacing": [
+                -0.6835939884185791,
+                0.6835939884185791,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6127.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6127.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6112.nii.gz",
+            "spacing": [
+                -0.763671875,
+                0.763671875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6112.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6112.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6098.nii.gz",
+            "spacing": [
+                -0.72265625,
+                0.72265625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6098.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6098.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6094.nii.gz",
+            "spacing": [
+                -0.69921875,
+                0.69921875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6094.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6094.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6072.nii.gz",
+            "spacing": [
+                -0.62109375,
+                0.62109375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6072.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6072.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6059.nii.gz",
+            "spacing": [
+                -0.7226560115814209,
+                0.7226560115814209,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6059.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6059.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_6028.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_6028.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_6028.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5999.nii.gz",
+            "spacing": [
+                -0.609375,
+                0.609375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5999.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5999.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5955.nii.gz",
+            "spacing": [
+                -0.7363280057907104,
+                0.7363280057907104,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5955.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5955.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5944.nii.gz",
+            "spacing": [
+                -0.62109375,
+                0.62109375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5944.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5944.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5940.nii.gz",
+            "spacing": [
+                -0.755859375,
+                0.755859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5940.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5940.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5917.nii.gz",
+            "spacing": [
+                -0.69140625,
+                0.69140625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5917.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5917.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5911.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5911.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5911.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5904.nii.gz",
+            "spacing": [
+                -0.68359375,
+                0.68359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5904.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5904.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5884.nii.gz",
+            "spacing": [
+                -0.658203125,
+                0.658203125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5884.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5884.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5883.nii.gz",
+            "spacing": [
+                -0.759765625,
+                0.759765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5883.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5883.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5876.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5876.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5876.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5875.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5875.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5875.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5869.nii.gz",
+            "spacing": [
+                -0.650390625,
+                0.650390625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5869.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5869.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5868.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5868.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5868.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5866.nii.gz",
+            "spacing": [
+                -0.61328125,
+                0.61328125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5866.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5866.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5860.nii.gz",
+            "spacing": [
+                -0.634765625,
+                0.634765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5860.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5860.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5842.nii.gz",
+            "spacing": [
+                -0.6796875,
+                0.6796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5842.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5842.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5840.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5840.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5840.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5829.nii.gz",
+            "spacing": [
+                -0.74609375,
+                0.74609375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5829.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5829.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5828.nii.gz",
+            "spacing": [
+                -0.6269530057907104,
+                0.6269530057907104,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5828.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5828.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5823.nii.gz",
+            "spacing": [
+                -0.603515625,
+                0.603515625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5823.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5823.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5817.nii.gz",
+            "spacing": [
+                -0.724609375,
+                0.724609375,
+                0.70001220703125
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5817.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5817.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5815.nii.gz",
+            "spacing": [
+                -0.73046875,
+                0.73046875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5815.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5815.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5809.nii.gz",
+            "spacing": [
+                -0.67578125,
+                0.67578125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5809.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5809.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5805.nii.gz",
+            "spacing": [
+                -0.59765625,
+                0.59765625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5805.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5805.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5803.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5803.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5803.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5801.nii.gz",
+            "spacing": [
+                -0.705078125,
+                0.705078125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5801.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5801.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5795.nii.gz",
+            "spacing": [
+                -0.7109375,
+                0.7109375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5795.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5795.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5744.nii.gz",
+            "spacing": [
+                -0.61328125,
+                0.61328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5744.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5744.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5730.nii.gz",
+            "spacing": [
+                -0.6796875,
+                0.6796875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5730.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5730.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5727.nii.gz",
+            "spacing": [
+                -0.5065104365348816,
+                0.5065104365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5727.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5727.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5724.nii.gz",
+            "spacing": [
+                -0.5651041865348816,
+                0.5651041865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5724.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5724.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5694.nii.gz",
+            "spacing": [
+                -0.6458333134651184,
+                0.6458333134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5694.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5694.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5688.nii.gz",
+            "spacing": [
+                -0.5546875,
+                0.5546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5688.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5688.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5683.nii.gz",
+            "spacing": [
+                -0.5364583134651184,
+                0.5364583134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5683.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5683.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5672.nii.gz",
+            "spacing": [
+                -0.7850000262260437,
+                0.7850000262260437,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5672.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5672.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5670.nii.gz",
+            "spacing": [
+                -0.64453125,
+                0.64453125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5670.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5670.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5661.nii.gz",
+            "spacing": [
+                -0.5299479365348816,
+                0.5299479365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5661.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5661.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5658.nii.gz",
+            "spacing": [
+                -0.6497395634651184,
+                0.6497395634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5658.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5658.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5652.nii.gz",
+            "spacing": [
+                -0.6015625,
+                0.6015625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5652.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5652.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5647.nii.gz",
+            "spacing": [
+                -0.6080729365348816,
+                0.6080729365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5647.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5647.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5644.nii.gz",
+            "spacing": [
+                -0.6497395634651184,
+                0.6497395634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5644.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5644.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5641.nii.gz",
+            "spacing": [
+                -0.5065104365348816,
+                0.5065104365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5641.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5641.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5638.nii.gz",
+            "spacing": [
+                -0.5390625,
+                0.5390625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5638.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5638.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5637.nii.gz",
+            "spacing": [
+                -0.5572916865348816,
+                0.5572916865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5637.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5637.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5609.nii.gz",
+            "spacing": [
+                -0.5572916865348816,
+                0.5572916865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5609.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5609.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5586.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5586.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5586.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5573.nii.gz",
+            "spacing": [
+                -0.6497395634651184,
+                0.6497395634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5573.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5573.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5563.nii.gz",
+            "spacing": [
+                -0.5234375,
+                0.5234375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5563.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5563.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5561.nii.gz",
+            "spacing": [
+                -0.5286458134651184,
+                0.5286458134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5561.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5561.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5547.nii.gz",
+            "spacing": [
+                -0.5846354365348816,
+                0.5846354365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5547.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5547.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5535.nii.gz",
+            "spacing": [
+                -0.6393229365348816,
+                0.6393229365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5535.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5535.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5534.nii.gz",
+            "spacing": [
+                -0.4661458432674408,
+                0.4661458432674408,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5534.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5534.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5528.nii.gz",
+            "spacing": [
+                -0.5807291865348816,
+                0.5807291865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5528.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5528.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5525.nii.gz",
+            "spacing": [
+                -0.4934895932674408,
+                0.4934895932674408,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5525.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5525.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5522.nii.gz",
+            "spacing": [
+                -0.8199999928474426,
+                0.8199999928474426,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5522.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5522.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5515.nii.gz",
+            "spacing": [
+                -0.5416666865348816,
+                0.5416666865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5515.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5515.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5486.nii.gz",
+            "spacing": [
+                -0.5338541865348816,
+                0.5338541865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5486.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5486.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5475.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5475.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5475.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5471.nii.gz",
+            "spacing": [
+                -0.4739583432674408,
+                0.4739583432674408,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5471.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5471.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5469.nii.gz",
+            "spacing": [
+                -0.8199999928474426,
+                0.8199999928474426,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5469.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5469.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5464.nii.gz",
+            "spacing": [
+                -0.5052083134651184,
+                0.5052083134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5464.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5464.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5463.nii.gz",
+            "spacing": [
+                -0.4986979067325592,
+                0.4986979067325592,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5463.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5463.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5461.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5461.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5461.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5449.nii.gz",
+            "spacing": [
+                -0.46875,
+                0.46875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5449.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5449.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5432.nii.gz",
+            "spacing": [
+                -0.7210000157356262,
+                0.7210000157356262,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5432.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5432.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5429.nii.gz",
+            "spacing": [
+                -0.62890625,
+                0.62890625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5429.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5429.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5413.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5413.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5413.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5412.nii.gz",
+            "spacing": [
+                -0.8730000257492065,
+                0.8730000257492065,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5412.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5412.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5394.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5394.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5394.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5387.nii.gz",
+            "spacing": [
+                -0.5078125,
+                0.5078125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5387.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5387.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5386.nii.gz",
+            "spacing": [
+                -0.7080000042915344,
+                0.7080000042915344,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5386.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5386.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5381.nii.gz",
+            "spacing": [
+                -0.54296875,
+                0.54296875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5381.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5381.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5377.nii.gz",
+            "spacing": [
+                -0.5638020634651184,
+                0.5638020634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5377.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5377.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5356.nii.gz",
+            "spacing": [
+                -0.52734375,
+                0.52734375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5356.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5356.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5340.nii.gz",
+            "spacing": [
+                -0.7360000014305115,
+                0.7360000014305115,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5340.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5340.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5336.nii.gz",
+            "spacing": [
+                -0.5690104365348816,
+                0.5690104365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5336.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5336.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5327.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5327.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5327.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5320.nii.gz",
+            "spacing": [
+                -0.6328125,
+                0.6328125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5320.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5320.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5319.nii.gz",
+            "spacing": [
+                -0.4830729067325592,
+                0.4830729067325592,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5319.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5319.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5318.nii.gz",
+            "spacing": [
+                -0.6589999794960022,
+                0.6589999794960022,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5318.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5318.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5311.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5311.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5311.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5309.nii.gz",
+            "spacing": [
+                -0.546875,
+                0.546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5309.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5309.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5308.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5308.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5308.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5305.nii.gz",
+            "spacing": [
+                -0.8240000009536743,
+                0.8240000009536743,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5305.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5305.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5287.nii.gz",
+            "spacing": [
+                -0.48828125,
+                0.48828125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5287.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5287.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5282.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5282.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5282.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5278.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5278.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5278.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5207.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5207.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5207.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5195.nii.gz",
+            "spacing": [
+                -0.9909999966621399,
+                0.9909999966621399,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5195.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5195.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5162.nii.gz",
+            "spacing": [
+                -0.8429999947547913,
+                0.8429999947547913,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5162.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5162.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5121.nii.gz",
+            "spacing": [
+                -0.8849999904632568,
+                0.8849999904632568,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5121.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5121.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5114.nii.gz",
+            "spacing": [
+                -0.6510416865348816,
+                0.6510416865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5114.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5114.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5111.nii.gz",
+            "spacing": [
+                -0.8309999704360962,
+                0.8309999704360962,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5111.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5111.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5101.nii.gz",
+            "spacing": [
+                -0.6276041865348816,
+                0.6276041865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5101.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5101.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5100.nii.gz",
+            "spacing": [
+                -0.9070000052452087,
+                0.9070000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5100.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5100.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5096.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5096.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5096.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5095.nii.gz",
+            "spacing": [
+                -0.5885416865348816,
+                0.5885416865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5095.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5095.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5082.nii.gz",
+            "spacing": [
+                -0.6393229365348816,
+                0.6393229365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5082.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5082.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5052.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5052.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5052.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5029.nii.gz",
+            "spacing": [
+                -0.5794270634651184,
+                0.5794270634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5029.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5029.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5026.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5026.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5026.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5014.nii.gz",
+            "spacing": [
+                -0.578125,
+                0.578125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5014.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5014.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_5010.nii.gz",
+            "spacing": [
+                -0.6393229365348816,
+                0.6393229365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_5010.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_5010.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0500.nii.gz",
+            "spacing": [
+                -0.67578125,
+                0.67578125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0500.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0500.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0499.nii.gz",
+            "spacing": [
+                -0.583984375,
+                0.583984375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0499.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0499.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0498.nii.gz",
+            "spacing": [
+                -0.626953125,
+                0.626953125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0498.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0498.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0497.nii.gz",
+            "spacing": [
+                -0.701171875,
+                0.701171875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0497.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0497.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0496.nii.gz",
+            "spacing": [
+                -0.60546875,
+                0.60546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0496.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0496.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0495.nii.gz",
+            "spacing": [
+                -0.64453125,
+                0.64453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0495.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0495.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0494.nii.gz",
+            "spacing": [
+                -0.693359375,
+                0.693359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0494.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0494.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0493.nii.gz",
+            "spacing": [
+                -0.66015625,
+                0.66015625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0493.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0493.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0492.nii.gz",
+            "spacing": [
+                -0.732421875,
+                0.732421875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0492.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0492.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0491.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0491.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0491.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0490.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0490.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0490.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0489.nii.gz",
+            "spacing": [
+                -0.68359375,
+                0.68359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0489.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0489.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0488.nii.gz",
+            "spacing": [
+                -0.763671875,
+                0.763671875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0488.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0488.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0487.nii.gz",
+            "spacing": [
+                -0.7109375,
+                0.7109375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0487.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0487.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0486.nii.gz",
+            "spacing": [
+                -0.654296875,
+                0.654296875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0486.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0486.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0485.nii.gz",
+            "spacing": [
+                -0.693359375,
+                0.693359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0485.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0485.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0483.nii.gz",
+            "spacing": [
+                -0.7265625,
+                0.7265625,
+                1.9999990463256836
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0483.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0483.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0482.nii.gz",
+            "spacing": [
+                -0.65234375,
+                0.65234375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0482.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0482.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0481.nii.gz",
+            "spacing": [
+                -0.6328125,
+                0.6328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0481.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0481.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0480.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0480.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0480.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0479.nii.gz",
+            "spacing": [
+                -0.8046875,
+                0.8046875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0479.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0479.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0478.nii.gz",
+            "spacing": [
+                -0.603515625,
+                0.603515625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0478.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0478.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0477.nii.gz",
+            "spacing": [
+                -0.65625,
+                0.65625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0477.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0477.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0476.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0476.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0476.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0475.nii.gz",
+            "spacing": [
+                -0.6269530057907104,
+                0.6269530057907104,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0475.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0475.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0474.nii.gz",
+            "spacing": [
+                -0.732421875,
+                0.732421875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0474.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0474.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0473.nii.gz",
+            "spacing": [
+                -0.66015625,
+                0.66015625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0473.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0473.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0472.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0472.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0472.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0471.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0471.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0471.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0468.nii.gz",
+            "spacing": [
+                -0.806640625,
+                0.806640625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0468.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0468.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0467.nii.gz",
+            "spacing": [
+                -0.732421875,
+                0.732421875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0467.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0467.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0466.nii.gz",
+            "spacing": [
+                -0.712890625,
+                0.712890625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0466.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0466.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0465.nii.gz",
+            "spacing": [
+                -0.634765625,
+                0.634765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0465.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0465.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0463.nii.gz",
+            "spacing": [
+                -0.603515625,
+                0.603515625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0463.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0463.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0462.nii.gz",
+            "spacing": [
+                -0.6328125,
+                0.6328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0462.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0462.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0461.nii.gz",
+            "spacing": [
+                -0.701171875,
+                0.701171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0461.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0461.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0460.nii.gz",
+            "spacing": [
+                -0.609375,
+                0.609375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0460.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0460.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0459.nii.gz",
+            "spacing": [
+                -0.49609375,
+                0.49609375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0459.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0459.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0458.nii.gz",
+            "spacing": [
+                -0.654296875,
+                0.654296875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0458.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0458.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0457.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0457.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0457.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0456.nii.gz",
+            "spacing": [
+                -0.62890625,
+                0.62890625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0456.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0456.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0455.nii.gz",
+            "spacing": [
+                -0.568359375,
+                0.568359375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0455.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0455.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0453.nii.gz",
+            "spacing": [
+                -0.712890625,
+                0.712890625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0453.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0453.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0452.nii.gz",
+            "spacing": [
+                -0.6035159826278687,
+                0.6035159826278687,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0452.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0452.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0451.nii.gz",
+            "spacing": [
+                -0.58203125,
+                0.58203125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0451.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0451.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0450.nii.gz",
+            "spacing": [
+                -0.8007810115814209,
+                0.8007810115814209,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0450.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0450.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0447.nii.gz",
+            "spacing": [
+                -0.77734375,
+                0.77734375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0447.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0447.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0445.nii.gz",
+            "spacing": [
+                -0.705078125,
+                0.705078125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0445.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0445.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0444.nii.gz",
+            "spacing": [
+                -0.5839840173721313,
+                0.5839840173721313,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0444.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0444.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0443.nii.gz",
+            "spacing": [
+                -0.7109379768371582,
+                0.7109379768371582,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0443.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0443.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0442.nii.gz",
+            "spacing": [
+                -0.7207030057907104,
+                0.7207030057907104,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0442.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0442.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0440.nii.gz",
+            "spacing": [
+                -0.7519530057907104,
+                0.7519530057907104,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0440.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0440.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0439.nii.gz",
+            "spacing": [
+                -0.609375,
+                0.609375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0439.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0439.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0437.nii.gz",
+            "spacing": [
+                -0.583984375,
+                0.583984375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0437.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0437.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0436.nii.gz",
+            "spacing": [
+                -0.57421875,
+                0.57421875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0436.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0436.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0435.nii.gz",
+            "spacing": [
+                -0.65625,
+                0.65625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0435.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0435.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0434.nii.gz",
+            "spacing": [
+                -0.6640625,
+                0.6640625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0434.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0434.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0433.nii.gz",
+            "spacing": [
+                -0.71875,
+                0.71875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0433.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0433.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0432.nii.gz",
+            "spacing": [
+                -0.642578125,
+                0.642578125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0432.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0432.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0431.nii.gz",
+            "spacing": [
+                -0.611328125,
+                0.611328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0431.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0431.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0430.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0430.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0430.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0429.nii.gz",
+            "spacing": [
+                -0.705078125,
+                0.705078125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0429.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0429.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0428.nii.gz",
+            "spacing": [
+                -0.669921875,
+                0.669921875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0428.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0428.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0426.nii.gz",
+            "spacing": [
+                -0.7226560115814209,
+                0.7226560115814209,
+                1.250000238418579
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0426.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0426.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0425.nii.gz",
+            "spacing": [
+                -0.6328125,
+                0.6328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0425.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0425.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0424.nii.gz",
+            "spacing": [
+                -0.65625,
+                0.65625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0424.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0424.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0423.nii.gz",
+            "spacing": [
+                -0.61328125,
+                0.61328125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0423.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0423.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0422.nii.gz",
+            "spacing": [
+                -0.7539060115814209,
+                0.7539060115814209,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0422.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0422.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0420.nii.gz",
+            "spacing": [
+                -0.56640625,
+                0.56640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0420.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0420.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0419.nii.gz",
+            "spacing": [
+                -0.626953125,
+                0.626953125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0419.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0419.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0418.nii.gz",
+            "spacing": [
+                -0.689453125,
+                0.689453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0418.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0418.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0416.nii.gz",
+            "spacing": [
+                -0.595703125,
+                0.595703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0416.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0416.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0415.nii.gz",
+            "spacing": [
+                -0.6328120231628418,
+                0.6328120231628418,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0415.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0415.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0414.nii.gz",
+            "spacing": [
+                -0.583984375,
+                0.583984375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0414.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0414.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0413.nii.gz",
+            "spacing": [
+                -0.66796875,
+                0.66796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0413.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0413.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0412.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0412.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0412.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0411.nii.gz",
+            "spacing": [
+                -0.66796875,
+                0.66796875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0411.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0411.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0407.nii.gz",
+            "spacing": [
+                -0.53125,
+                0.53125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0407.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0407.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0393.nii.gz",
+            "spacing": [
+                -0.5755208134651184,
+                0.5755208134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0393.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0393.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0389.nii.gz",
+            "spacing": [
+                -0.55078125,
+                0.55078125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0389.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0389.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0386.nii.gz",
+            "spacing": [
+                -0.6393229365348816,
+                0.6393229365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0386.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0386.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0382.nii.gz",
+            "spacing": [
+                -0.515625,
+                0.515625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0382.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0382.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0375.nii.gz",
+            "spacing": [
+                -0.6497395634651184,
+                0.6497395634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0375.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0375.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0369.nii.gz",
+            "spacing": [
+                -0.5065104365348816,
+                0.5065104365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0369.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0369.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0360.nii.gz",
+            "spacing": [
+                -0.587890625,
+                0.587890625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0360.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0360.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0359.nii.gz",
+            "spacing": [
+                -0.56640625,
+                0.56640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0359.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0359.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0355.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0355.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0355.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0354.nii.gz",
+            "spacing": [
+                -0.59375,
+                0.59375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0354.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0354.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0345.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0345.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0345.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0343.nii.gz",
+            "spacing": [
+                -0.595703125,
+                0.595703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0343.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0343.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0340.nii.gz",
+            "spacing": [
+                -0.7265625,
+                0.7265625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0340.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0340.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0338.nii.gz",
+            "spacing": [
+                -0.828125,
+                0.828125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0338.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0338.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0335.nii.gz",
+            "spacing": [
+                -0.6171875,
+                0.6171875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0335.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0335.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0331.nii.gz",
+            "spacing": [
+                -0.677734375,
+                0.677734375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0331.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0331.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0329.nii.gz",
+            "spacing": [
+                -0.6640625,
+                0.6640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0329.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0329.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0327.nii.gz",
+            "spacing": [
+                -0.6835939884185791,
+                0.6835939884185791,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0327.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0327.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0324.nii.gz",
+            "spacing": [
+                -0.625,
+                0.625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0324.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0324.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0322.nii.gz",
+            "spacing": [
+                -0.685546875,
+                0.685546875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0322.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0322.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0319.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0319.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0319.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0315.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0315.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0315.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0314.nii.gz",
+            "spacing": [
+                -0.626953125,
+                0.626953125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0314.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0314.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0312.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0312.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0312.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0306.nii.gz",
+            "spacing": [
+                -0.71875,
+                0.71875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0306.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0306.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0305.nii.gz",
+            "spacing": [
+                -0.7402340173721313,
+                0.7402340173721313,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0305.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0305.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0303.nii.gz",
+            "spacing": [
+                -0.7617189884185791,
+                0.7617189884185791,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0303.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0303.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0298.nii.gz",
+            "spacing": [
+                -0.728515625,
+                0.728515625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0298.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0298.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0295.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0295.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0295.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0285.nii.gz",
+            "spacing": [
+                -0.6484375,
+                0.6484375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0285.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0285.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0277.nii.gz",
+            "spacing": [
+                -0.640625,
+                0.640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0277.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0277.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0275.nii.gz",
+            "spacing": [
+                -0.64453125,
+                0.64453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0275.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0275.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0271.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0271.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0271.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0270.nii.gz",
+            "spacing": [
+                -0.7558590173721313,
+                0.7558590173721313,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0270.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0270.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0269.nii.gz",
+            "spacing": [
+                -0.701171875,
+                0.701171875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0269.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0269.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0266.nii.gz",
+            "spacing": [
+                -0.56640625,
+                0.56640625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0266.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0266.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0265.nii.gz",
+            "spacing": [
+                -0.7734379768371582,
+                0.7734379768371582,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0265.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0265.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0261.nii.gz",
+            "spacing": [
+                -0.703125,
+                0.703125,
+                1.25
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0261.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0261.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0260.nii.gz",
+            "spacing": [
+                -0.69921875,
+                0.69921875,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0260.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0260.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0253.nii.gz",
+            "spacing": [
+                -0.6953125,
+                0.6953125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0253.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0253.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0252.nii.gz",
+            "spacing": [
+                -0.564453125,
+                0.564453125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0252.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0252.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0251.nii.gz",
+            "spacing": [
+                -0.611328125,
+                0.611328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0251.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0251.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0243.nii.gz",
+            "spacing": [
+                -0.763671875,
+                0.763671875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0243.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0243.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0241.nii.gz",
+            "spacing": [
+                -0.630859375,
+                0.630859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0241.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0241.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0232.nii.gz",
+            "spacing": [
+                -0.61328125,
+                0.61328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0232.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0232.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0229.nii.gz",
+            "spacing": [
+                -0.689453125,
+                0.689453125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0229.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0229.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0227.nii.gz",
+            "spacing": [
+                -0.59765625,
+                0.59765625,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0227.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0227.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0222.nii.gz",
+            "spacing": [
+                -0.6796875,
+                0.6796875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0222.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0222.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0221.nii.gz",
+            "spacing": [
+                -0.611328125,
+                0.611328125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0221.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0221.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0213.nii.gz",
+            "spacing": [
+                -0.7753909826278687,
+                0.7753909826278687,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0213.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0213.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0211.nii.gz",
+            "spacing": [
+                -0.673828125,
+                0.673828125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0211.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0211.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0210.nii.gz",
+            "spacing": [
+                -0.673828125,
+                0.673828125,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0210.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0210.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0209.nii.gz",
+            "spacing": [
+                -0.626953125,
+                0.626953125,
+                2.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0209.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0209.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0205.nii.gz",
+            "spacing": [
+                -0.76171875,
+                0.76171875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0205.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0205.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0201.nii.gz",
+            "spacing": [
+                -0.7773439884185791,
+                0.7773439884185791,
+                2.5
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0201.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0201.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0187.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0187.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0187.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0183.nii.gz",
+            "spacing": [
+                -0.5651041865348816,
+                0.5651041865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0183.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0183.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0182.nii.gz",
+            "spacing": [
+                -0.9070000052452087,
+                0.9070000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0182.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0182.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0169.nii.gz",
+            "spacing": [
+                -0.7889999747276306,
+                0.7889999747276306,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0169.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0169.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0168.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0168.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0168.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0165.nii.gz",
+            "spacing": [
+                -0.63671875,
+                0.63671875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0165.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0165.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0164.nii.gz",
+            "spacing": [
+                -0.8999999761581421,
+                0.8999999761581421,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0164.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0164.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0163.nii.gz",
+            "spacing": [
+                -0.6263020634651184,
+                0.6263020634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0163.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0163.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0146.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0146.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0146.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0145.nii.gz",
+            "spacing": [
+                -0.5690104365348816,
+                0.5690104365348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0145.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0145.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0130.nii.gz",
+            "spacing": [
+                -0.5859375,
+                0.5859375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0130.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0130.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0122.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0122.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0122.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0114.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0114.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0114.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0107.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0107.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0107.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0100.nii.gz",
+            "spacing": [
+                -0.8460000157356262,
+                0.8460000157356262,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0100.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0100.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0096.nii.gz",
+            "spacing": [
+                -0.8500000238418579,
+                0.8500000238418579,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0096.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0096.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0093.nii.gz",
+            "spacing": [
+                -0.890625,
+                0.890625,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0093.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0093.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0082.nii.gz",
+            "spacing": [
+                -0.5807291865348816,
+                0.5807291865348816,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0082.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0082.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0080.nii.gz",
+            "spacing": [
+                -0.546875,
+                0.546875,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0080.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0080.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0074.nii.gz",
+            "spacing": [
+                -0.5130208134651184,
+                0.5130208134651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0074.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0074.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0062.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0062.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0062.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0053.nii.gz",
+            "spacing": [
+                -0.6497395634651184,
+                0.6497395634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0053.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0053.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0046.nii.gz",
+            "spacing": [
+                -0.5950520634651184,
+                0.5950520634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0046.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0046.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0039.nii.gz",
+            "spacing": [
+                -0.5794270634651184,
+                0.5794270634651184,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0039.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0039.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0037.nii.gz",
+            "spacing": [
+                -0.58984375,
+                0.58984375,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0037.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0037.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0031.nii.gz",
+            "spacing": [
+                -0.8539999723434448,
+                0.8539999723434448,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0031.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0031.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0020.nii.gz",
+            "spacing": [
+                -0.8159999847412109,
+                0.8159999847412109,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0020.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0020.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0012.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0012.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0012.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0003.nii.gz",
+            "spacing": [
+                -0.8199999928474426,
+                0.8199999928474426,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0003.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0003.nii.gz"
+        },
+        {
+            "image": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/imagesTs-nii/amos_0002.nii.gz",
+            "spacing": [
+                -0.7820000052452087,
+                0.7820000052452087,
+                5.0
+            ],
+            "vqa": "/h/junma/MedicalVLM/Data/vqa/amos_0002.json",
+            "mask": "/scratch/ssd004/datasets/med-img-data/amosmm/AMOSMM-Test/totalSeg_AMOSMM_imagesTs/amos_0002.nii.gz"
+        }
+    ]
+}
