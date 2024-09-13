@@ -56,3 +56,29 @@ The argument `json_path` should point to the path of the json file we just prepa
 To finetune your model for VQA instead of medical report generation, simple change the `task` argument to vqa. There are additional arguments for VQA, like `only_letter` and `with_reason`.
 
 ## Inference
+To do inference for MRG, run the following command:
+```
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
+  --model_name_or_path /path/to/trained/model \
+  --json_path Data/AMOSMM.json \
+  --model_max_length 768 \
+  --prompt "simple" \
+  --post_process "normality" "focused_inference" \
+  --proj_out_num 256
+```
+The argument `post_process` adds two additional steps when inference on the model is done. The first is a knowledge-base normality finding, and the second is a focused inference based on specified questions. You can find the knowledge base at `utils/postprocessor.py`. The ones currently used, especially for the focused inference, are specific to the competition dataset and our submissions, and should be changed depending on the usecase.
+
+To do VQA inference, run the following command:
+```
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer_vqa.py   \
+  --model_name_or_path /path/to/trained/model \
+  --json_path Data/AMOSMM.json \
+  --image_size 32 256 256 \
+  --model_max_length 512 \
+  --proj_out_num 256
+```
+An additional argument `with_acc` is used to control whether to also calculate the VQA accuracy. You need to have the correct answers in the same format as the competiton for this to work. 
+
+# Acknowledgements
+* We highly appreciate all the challenge organizers of the MICCAI24 AMOS-MM challenge.
+* This codebase is built upon the M3D repository, so we gracefully acknowledge the authors for their work. 
