@@ -1,5 +1,15 @@
 from LaMed.src.dataset.multi_dataset import read_image
 
+
+FOCUSED_INFERENCE_QA = [{
+        "q":"Do you observe fluid in the chest cavities? What about in the thoracic, pleural cavity, OR pericardium? Please answer with 'yes' if you suspect you observe ANY of them, even if you are not very confident.", 
+        "a": "Fluid is observed in both chest cavities, thoracic, right and left pleural cavity, or pericardium,  consistent with pleural effusion. "
+    },
+    {
+        "q": "Do you observe patchy linear OR high-density shadows in the lungs? Please answer with 'yes' if you suspect you observe ANY of them, even if you are not very confident.", 
+        "a": "Patchy linear and high-density opacities and shadows are observed in the lungs, potentially indicating conditions such as pneumonia, pulmonary edema, or interstitial lung disease. "
+    }]
+
 CHEST_MAPPING = {
     ("lung fields",): "The Lung fields are clear and normal with no evidence of consolidation",
     ("heart",): "The heart size and shape is normal and within limits. The heart is normal",
@@ -90,16 +100,6 @@ class PostProcessor():
             mtf.Resize((32, 256, 256))
         ])
 
-        qa = [
-        {
-            "q":"Do you observe fluid in the chest cavities? What about in the thoracic, pleural cavity, OR pericardium? Please answer with 'yes' if you suspect you observe ANY of them, even if you are not very confident.", 
-            "a": "Fluid is observed in both chest cavities, thoracic, right and left pleural cavity, or pericardium,  consistent with pleural effusion. "
-        },
-        {
-            "q": "Do you observe patchy linear OR high-density shadows in the lungs? Please answer with 'yes' if you suspect you observe ANY of them, even if you are not very confident.", 
-            "a": "Patchy linear and high-density opacities and shadows are observed in the lungs, potentially indicating conditions such as pneumonia, pulmonary edema, or interstitial lung disease. "
-        }
-        ]
         from tqdm import tqdm
         for i, name in tqdm(enumerate(names)):
             image_path = data_list[i]
@@ -110,7 +110,7 @@ class PostProcessor():
             image = read_image(image_abs_path)
             image = transform(image).unsqueeze(0).to(self.model.device, dtype=torch.bfloat16)
 
-            for q_ in qa:
+            for q_ in FOCUSED_INFERENCE_QA:
                 conversation = [{"role": "system", "content": "You are an AI assistant trained to act as a thoracic radiologist. Only output 'yes' or 'no' answers, nothing else"},
                     {"role": "user", "content": q_["q"]}]
                 input_ids = self.tokenizer.apply_chat_template(conversation, tokenize=False)
@@ -129,18 +129,9 @@ class PostProcessor():
 
 
     def run(self):
-        if "simple_normal" in self.post_process_list:
-            
-            abdomen = self.results["generated-abdomen"]
-            for i, example in enumerate(abdomen): 
-                for organ in ["Liver", "Spleen", "Gallbladder", "Bile duct", "Pancreas", "Kidneys"]:
-                    if organ.casefold() not in example.casefold():
-                        abdomen[i] += f" The {organ} is normal."
-            self.results["generated-abdomen"] = abdomen
-
-        elif "complex_normal" in self.post_process_list:
-            print("Doing complex normal")
-            self.complex_normal()
+        if "normality" in self.post_process_list:
+            print("Doing normality")
+            self.normality()
 
         if "focused_inference" in self.post_process_list:
             print("Doing focused inference")
@@ -148,7 +139,7 @@ class PostProcessor():
 
         return self.results
     
-    def complex_normal(self):
+    def normality(self):
         chest = self.results["generated-chest"]
         for i, example in enumerate(chest):
             if isinstance(example, float): # check nans

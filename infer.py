@@ -162,8 +162,6 @@ def main():
             generated_texts = tokenizer.batch_decode(generation, skip_special_tokens=True)
             results['generated-' + str(organ)].append(generated_texts[0])
 
-            print(generated_texts[0])
-
             if green:
                 gt_text = item["answer"][organ]
                 results['gt-' + str(organ)].append(gt_text)

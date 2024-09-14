@@ -32,30 +32,23 @@ def seed_everything(seed):
 # Set the seed for reproducibility
 def main():
     parser = argparse.ArgumentParser(description='Script configuration')
-    parser.add_argument('--is_val', type=bool, default=False, help='Validation flag')
     parser.add_argument('--image_size', type=int, nargs=3, default=(32, 256, 256), help='Image size as a tuple (C, H, W)')
-    parser.add_argument('--lr_image_size', type=int, nargs=3, default=(32, 128, 128), help='Low resolution image size as a tuple (C, H, W)')
     parser.add_argument('--model_name_or_path', type=str, default='/scratch/ssd004/scratch/mohammed/results/hilt_64_320_1024', help='Model path or name')
     parser.add_argument('--json_path', type=str, default="/scratch/ssd004/scratch/mohammed/AMOSMM/AMOSMMVal.json", help='Path to JSON file')
     parser.add_argument('--model_max_length', type=int, default=768, help='Maximum model length')
     parser.add_argument('--proj_out_num', type=int, default=512, help='Project output number')
     parser.add_argument('--image_path', type=str, default="/scratch/ssd004/datasets/med-img-data/amosmm/ori_nii/imagesVa", help='Path to the image directory')
-    parser.add_argument('--prompt', type=str, default="")
-    parser.add_argument('--shuffle', type=bool, default=False)
-
+    parser.add_argument("--with_acc", type=bool, default=False)
+    
     args = parser.parse_args()
 
     print("Arguments received:")
-    print(f"is_val: {args.is_val}")
     print(f"image_size: {args.image_size}")
-    print(f"lr_image_size: {args.lr_image_size}")
     print(f"model_name_or_path: {args.model_name_or_path}")
     print(f"json_path: {args.json_path}")
     print(f"model_max_length: {args.model_max_length}")
     print(f"proj_out_num: {args.proj_out_num}")
     print(f"image_path: {args.image_path}")
-    print(f"prompt: {args.prompt}")
-    print(f"shuffle: {args.shuffle}")
 
     seed_everything(42)
 
@@ -68,10 +61,7 @@ def main():
     model_max_length = args.model_max_length
     proj_out_num = args.proj_out_num
     image_path = args.image_path
-    prompt = args.prompt
-    shuffle = args.shuffle
-
-    with_acc = False
+    with_acc = args.with_acc
         
     transform = mtf.Compose(
             [
@@ -121,10 +111,7 @@ def main():
         model.generation_config.pad_token_id = tokenizer.pad_token_id
 
     tag = json_path.split(os.sep)[-1].split(".")[0]
-    if shuffle:
-        path = model_name_or_path + os.sep + f'{tag}_shuffled.json'
-    else:
-        path = model_name_or_path + os.sep + f'{tag}.json'
+    path = model_name_or_path + os.sep + f'{tag}.json'
     results = OrderedDict()
     results["validation"] = []
 
@@ -229,7 +216,6 @@ def main():
     txt_path = path.replace("json", "txt")
     if with_acc:
         with open(txt_path, 'w') as file:
-            # Convert the integer to a string and write it to the file
             file.write(str(correct / total))
 
 if __name__ == '__main__':

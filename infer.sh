@@ -12,10 +12,10 @@
 #/SBATCH --gres=gpu:a40:1
 
 source /h/junma/.mvlm/bin/activate
-CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29511 infer.py \
-  --model_name_or_path /scratch/ssd004/datasets/med-img-data/amosmm/trained/llama3_frozen_simple_all_template \
-  --json_path /fs01/home/junma/MedicalVLM/Data/AMOSMMVal.json \
-  --model_max_length 800 \
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
+  --model_name_or_path /scratch/ssd004/datasets/med-img-data/amosmm/trained/download/llama3_frozen_simple_all_template \
+  --json_path Data/AMOSMM.json \
+  --model_max_length 768 \
   --prompt "simple" \
-  --post_process "complex_normal", "focused_inference" \
+  --post_process "normality" "focused_inference" \
   --proj_out_num 256
