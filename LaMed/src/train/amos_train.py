@@ -6,8 +6,8 @@ import torch
 import transformers
 from transformers import AutoTokenizer, LlamaForCausalLM
 from dataclasses import dataclass, field
-from LaMed.src.dataset.multi_dataset import AMOSCapDataset, AMOSVQADataset, UniDatasets
-from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCausalLM, LamedGemmaForCausalLM
+from LaMed.src.dataset.multi_dataset import AMOSCapDataset, AMOSVQADataset, AMOSImpressions2Findings, UniDatasets
+from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCausalLM, LamedGemmaForCausalLM, LamedQwen2ForCausalLM
 from LaMed.src.train.lamed_trainer import LaMedTrainer
 from utils import parse_custom_tuple, print_trainable_parameters, process_crops
 
@@ -59,6 +59,7 @@ class ModelArguments:
 
     # MRG
     prompt: str = field(default="")
+    triplet: bool = field(default=False)
 
     # VQA
     only_letter: bool = field(default=False)
@@ -66,6 +67,7 @@ class ModelArguments:
     with_added_q: bool = field(default=False)
     with_report: bool = field(default=False)
 
+    splitted_findings: bool = field(default=False)
     with_template: bool = field(default=False)
     organs: List[str] = field(default_factory=lambda: ['abdomen', 'chest', 'pelvis'])
     with_impressions: bool = field(default=False)
@@ -214,14 +216,11 @@ class DataCollator:
         images, input_ids, labels, attention_mask, segs = tuple(
             [b[key] for b in batch] for key in ('image', 'input_id', 'label', 'attention_mask', "segs"))
 
-        images = torch.cat([_.unsqueeze(0) for _ in images], dim=0)
+        images = torch.cat([img.unsqueeze(0) for img in images if img is not None], dim=0) if images[0] is not None else None
         input_ids = torch.cat([_.unsqueeze(0) for _ in input_ids], dim=0)
         labels = torch.cat([_.unsqueeze(0) for _ in labels], dim=0)
         attention_mask = torch.cat([_.unsqueeze(0) for _ in attention_mask], dim=0)
-        if segs[0] is not None:
-            segs = torch.cat([_.unsqueeze(0) for _ in segs], dim=0)
-        else:
-            segs = None
+        segs = torch.cat([seg.unsqueeze(0) for seg in segs if seg is not None], dim=0) if segs[0] is not None else None
 
         return_dict = dict(
             images=images,
@@ -239,9 +238,10 @@ def main():
     parser = transformers.HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
-    if isinstance(model_args.image_size, str): model_args.image_size = parse_custom_tuple(model_args.image_size)
-    if isinstance(model_args.any_res_image_size, str): model_args.any_res_image_size = parse_custom_tuple(model_args.any_res_image_size)
-    if isinstance(model_args.patch_size, str): model_args.patch_size = parse_custom_tuple(model_args.patch_size)
+    for attr in ["image_size", "any_res_image_size", "patch_size"]:
+        value = getattr(model_args, attr, None)
+        if isinstance(value, str): setattr(model_args, attr, parse_custom_tuple(value))
+
     if isinstance(model_args.any_res_crops, str): model_args.any_res_crops = process_crops(model_args.any_res_crops)
 
     print('model_args:', model_args, '\n', '=='*10)
@@ -302,6 +302,13 @@ def main():
                 cache_dir=training_args.cache_dir,
                 trust_remote_code=True
                 )
+        elif 'qwen' in model_args.model_type:
+            print("Using qwen")
+            model = LamedQwen2ForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                cache_dir=training_args.cache_dir,
+                trust_remote_code=True
+            )
         else:
             raise ValueError(f"Unknown Model Type {model_args.model_type}")
     else:
@@ -337,6 +344,7 @@ def main():
     if training_args.lora_enable or training_args.keep_lora or training_args.freeze_llm:
         if training_args.freeze_llm:
             rank0_print("Freezing LLM finetuning everything else.")
+            training_args.lora_enable = False
             model.requires_grad_(False)
         elif training_args.keep_lora:
             rank0_print("Keeping LoRA weights and finetuning them")
@@ -348,6 +356,7 @@ def main():
                 target_modules=find_all_linear_names(model),
                 lora_dropout=training_args.lora_dropout,
                 bias=training_args.lora_bias,
+                use_dora=training_args.use_dora,
                 task_type="CAUSAL_LM",
             )
             rank0_print("Adding LoRA adapters only on LLM.")
@@ -371,11 +380,15 @@ def main():
     data_args.with_seg_mask = model_args.with_seg
     data_args.with_template = model_args.with_template
 
+    # MRG Args
+    data_args.triplet = model_args.triplet
+
     # VQA Args
     data_args.only_letter = model_args.only_letter
     data_args.with_reason = model_args.with_reason
     data_args.with_report = model_args.with_report
     data_args.with_added_q = model_args.with_added_q
+    data_args.splitted_findings = model_args.splitted_findings
 
     if model_args.any_res_image_size:
        data_args.data_img_size = model_args.any_res_image_size
@@ -387,8 +400,9 @@ def main():
     if data_args.task == "mrg":
         train_dataset = AMOSCapDataset(data_args, tokenizer, mode='train')
     elif data_args.task == "vqa":
-        train_dataset = AMOSVQADataset(data_args, tokenizer, mode='train',)
-
+        train_dataset = AMOSVQADataset(data_args, tokenizer, mode='train')
+    elif data_args.task == "i2f":
+        train_dataset = AMOSImpressions2Findings(data_args, tokenizer, mode='train')
     elif data_args.task == "all":
         train_dataset = UniDatasets(data_args, tokenizer=tokenizer, mode='train')
     else:

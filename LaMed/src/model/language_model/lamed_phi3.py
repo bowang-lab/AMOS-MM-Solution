@@ -56,7 +56,7 @@ class LamedPhi3ForCausalLM(LamedMetaForCausalLM, Phi3ForCausalLM):
     ) -> Union[Tuple, CausalLMOutputWithPast]:
 
         input_ids_pre = input_ids
-        if inputs_embeds is None:
+        if inputs_embeds is None and images != None:
             (
                 input_ids,
                 position_ids,
@@ -73,6 +73,7 @@ class LamedPhi3ForCausalLM(LamedMetaForCausalLM, Phi3ForCausalLM):
                 images,
                 segs
             )            
+
         return super().forward(
             input_ids=input_ids,
             attention_mask=attention_mask,

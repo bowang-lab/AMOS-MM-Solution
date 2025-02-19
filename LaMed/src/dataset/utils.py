@@ -1,5 +1,6 @@
 import numpy as np
 import SimpleITK as sitk
+from .triplets import COMMON_TRIPLET_STANDARD
 
 REGION_TO_ORGAN_IDS_MAPPING = {
     "abdomen": [
@@ -37,3 +38,54 @@ def read_numpy_or_dicom(path, ext="npy"):
         del img_sitk
     return img
 
+def make_triplet_prompt(entity, position):
+    if entity is None and position is not None:
+        prompt = f"Is the {position} normal?"
+    elif entity is not None and position is None:
+        prompt = f"Can you observe {entity} in this CT scan?"
+    else:
+        prompt = f"Is there {entity} in the {position}?"
+    return prompt
+
+def triplet_prompt(data, organ=None, standardize=False):
+    prompts = []
+    labels = []
+    
+    if organ in COMMON_TRIPLET_STANDARD.keys():
+        indices_found = [False for _ in range(len(list(COMMON_TRIPLET_STANDARD[organ].keys())))]
+        labels_for_indices = [False for _ in range(len(indices_found))]
+
+    for _, values in data.items():
+        entity, position, exist = values
+        
+        found_for_this_example = False
+
+        if standardize and organ in COMMON_TRIPLET_STANDARD.keys():
+            common_triplets = COMMON_TRIPLET_STANDARD[organ]
+            for j, (triplet, other_names) in enumerate(common_triplets.items()):
+                if [entity,position] in other_names:
+                    indices_found[j] = True
+                    labels_for_indices[j] = exist
+                    found_for_this_example = True
+                    break
+
+        if not found_for_this_example:
+            prompt = make_triplet_prompt(entity, position)
+            prompts.append(prompt)
+            labels.append(str(exist))
+
+    if standardize and organ in COMMON_TRIPLET_STANDARD.keys():
+        for j, found in enumerate(indices_found):
+            triplets = list(common_triplets.keys())
+            triplet = triplets[j]
+            prompts.insert(0, make_triplet_prompt(triplet[0], triplet[1]))
+            if found:
+                labels.insert(0, str(labels_for_indices[j]))
+            else:
+                labels.insert(0, "False")
+
+    # add numbering
+    prompts = [f"{i}. {p}" for i, p in enumerate(prompts)]
+    labels = [f"{i}. {l}" for i, l in enumerate(labels)]
+
+    return "\n".join(prompts), "\n".join(labels)

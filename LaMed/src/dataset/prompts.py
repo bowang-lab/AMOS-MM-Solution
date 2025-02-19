@@ -1,4 +1,12 @@
 prompt_templates = {
+    "triplet": {
+        "abdomen": """You are an AI assistant trained to act as an abdominal radiologist. Your task is to analyze abdomen CT scans and answer yes or no to specific questions about abnormalities. Based on the given CT scan, predict whether each question's condition is present (True) or absent (False). Ensure that your responses are strictly binary (True/False). Below is the list of questions. Please answer all of them. Questions:
+        """,
+        "chest": """You are an AI assistant trained to act as a thoracic radiologist. Your task is to analyze chest CT scans and answer yes or no to specific questions about abnormalities. Based on the given CT scan, predict whether each question's condition is present (True) or absent (False). Ensure that your responses are strictly binary (True/False). Below is the list of questions. Please answer all of them. Questions:
+        """,
+        "pelvis": """You are an AI assistant trained to act as a radiologist specializing in pelvic imaging. Your task is to analyze pelvis CT scans and answer yes or no to specific questions about abnormalities. Based on the given CT scan, predict whether each question's condition is present (True) or absent (False). Ensure that your responses are strictly binary (True/False). Below is the list of questions. Please answer all of them. Questions:
+        """
+    },
     "organs": {
         "abdomen": """You are an AI assistant trained to act as an abdominal radiologist. Please describe in detail the findings in this abdomen CT scan. Make sure to include what you observe for the spleen, liver, pancreas, gallblader, and kidneys.
         If there are no abnormalities at a specific organ, make sure to mention that. Do you see any high or low desisty lesion or foci? What about the densities of each organ? Be as detailed as possible.

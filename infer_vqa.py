@@ -54,8 +54,7 @@ def main():
 
     device = torch.device('cuda') # 'cpu', 'cuda'
     dtype = torch.bfloat16 # or bfloat16, float16, float32
-
-    image_size = args.image_size
+        
     model_name_or_path = args.model_name_or_path
     json_path = args.json_path
     model_max_length = args.model_max_length
@@ -63,12 +62,6 @@ def main():
     image_path = args.image_path
     with_acc = args.with_acc
         
-    transform = mtf.Compose(
-            [
-                mtf.Resize(image_size),
-                mtf.ToTensor(dtype=torch.float),
-            ]
-        )
 
     with open(json_path) as f:
         data = json.load(f)
@@ -104,11 +97,21 @@ def main():
         use_fast=False,
         trust_remote_code=True
     )
+
+    if model.config.any_res_image_size:
+        resize_size = model.config.any_res_image_size
+    else:
+        resize_size = model.config.image_size
+
+    transform = mtf.Compose(
+        [
+            mtf.Resize(resize_size),
+            mtf.ToTensor(dtype=torch.float),
+        ]
+    )
+
     model = model.to(device=device)
     template = True
-
-    if not model.generation_config.pad_token_id:
-        model.generation_config.pad_token_id = tokenizer.pad_token_id
 
     tag = json_path.split(os.sep)[-1].split(".")[0]
     path = model_name_or_path + os.sep + f'{tag}.json'
@@ -142,7 +145,7 @@ def main():
             img_data = (img_data - np.min(img_data))/ (np.max(img_data) - np.min(img_data))
             img_data = np.expand_dims(img_data, 0)
 
-            to_resize = mtf.Resize(image_size)
+            to_resize = mtf.Resize(resize_size)
             to_tensor = mtf.ToTensor(dtype=dtype)
             image = to_tensor(to_resize(img_data)).unsqueeze(0).to(device=device)
 
@@ -163,25 +166,25 @@ def main():
             
             case_q["question"] = question
             case_q["options"] = options
-    
+
             choices = "Choices: A. {} B. {} C. {} D. {}".format(options["A"], options["B"], options["C"], options["D"])
             question = question + ' ' + choices
 
             if template:
                 conversation = [{  
                     "role": "system", "content": "You are an AI assistant acting as a radiologist tasked with answering a multiple choice question based on a CT scan."},
-                    {"role": "user", "content": image_tokens + ' ' + question}]
+                    {"role": "user", "content": image_tokens + ' ' + question}
+                    # {"role": "user", "content": question}
+                    ]
                 input_txt = tokenizer.apply_chat_template(conversation, tokenize=False)
             else:
                 input_txt = image_tokens + question
             input_id = tokenizer(input_txt, return_tensors="pt")['input_ids'].to(device=device)
-            
+
             generation = model.generate(image, input_id, max_new_tokens=10, do_sample=True, top_p=0.9, temperature=1.0)
             pred = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
-            pred = pred.strip()
 
-            case_q["prediction"] = pred[0]
-            case_q["type"] = q_item["type"]
+            pred = pred.strip()
             
             if len(pred) == 0:
                 pred = random.choice(["A", "B", "C", "D"]) 
@@ -190,6 +193,9 @@ def main():
             if pred not in ["A", "B", "C", "D"] :
                 print(f"Incorrect option: {pred}")
                 pred = random.choice(["A", "B", "C", "D"])
+            
+            case_q["prediction"] = pred[0]
+            case_q["type"] = q_item["type"]
 
             if with_acc:
                 answer = q_item["answer"]

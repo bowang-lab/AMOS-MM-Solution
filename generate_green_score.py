@@ -1,8 +1,9 @@
 import os
 import pandas as pd
 from tqdm import tqdm
-from green_score import GREEN
+from GREEN.green_score import GREEN
 import json
+import re
 
 class GenerateGreenScore:
     def __init__(self, csv_path, cache_dir=None, save_every=10, organs=["chest"]): 
@@ -55,8 +56,11 @@ class GenerateGreenScore:
                 if row[f"green_{organ}"] != -1:
                     continue
                 if row[f"gt-{organ}"] and row[f"gt-{organ}"]:
+                    gt = row[f"gt-{organ}"]
+                    gn = row[f"generated-{organ}"]
+                
                     _, green, explination = \
-                        self.model(refs=[row[f"gt-{organ}"]], hyps=[row[f"generated-{organ}"]])
+                        self.model(refs=[gt], hyps=[gn])
                     self.df[f"green_{organ}"].iloc[indx] = green[0].item()
                     self.df[f"explanation_{organ}"].iloc[indx] = explination[0]                
 

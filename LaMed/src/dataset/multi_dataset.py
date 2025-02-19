@@ -15,7 +15,7 @@ import monai.transforms as mtf
 from monai.data import load_decathlon_datalist
 from monai.data import set_track_meta
 
-from .utils import read_numpy_or_dicom, REGION_TO_ORGAN_IDS_MAPPING
+from .utils import read_numpy_or_dicom, triplet_prompt, REGION_TO_ORGAN_IDS_MAPPING
 from ..utils.utils import mask2box
 from .dataset_info import dataset_info
 from .prompt_templates import Caption_templates, PosREC_templates, PosREG_templates, Seg_templates
@@ -23,7 +23,6 @@ from .term_dictionary import term_dict
 from .prompts import prompt_templates
 from skimage.transform import resize
 import pdb
-
 
 def read_image(path):
     ext = path.split(os.sep)[-1].split(".")[-1]
@@ -66,7 +65,7 @@ class AMOSCapDataset(Dataset):
             with open(args.json_path, 'r') as file:
                 self.json_file = json.load(file)
             self.data_list = self.json_file[mode]
-        self.data_list = self.data_list[:3]
+        self.data_list = self.data_list
         print(f"Length dataset: {len(self.data_list)}")
 
         if args.prompt in prompt_templates.keys():               
@@ -209,113 +208,131 @@ class AMOSCapDataset(Dataset):
         return ret
 
     def __getitem__(self, idx):
-        if self.mode == "validation":
-            return self.__getitem_validation__(idx)
-        
-        data = self.data_list[idx]
-        text_path = data["text"]
-        if text_path.startswith('/'):
-            text_abs_path = text_path
-        else:
-            text_abs_path = os.path.join(self.data_root, text_path)
-        
-        if text_abs_path.endswith('.json'):
-            with open(text_abs_path) as f:
-                raw_text = json.load(f)
-                while "findings" in raw_text.keys():
-                    raw_text = raw_text["findings"]
-
-                raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
-                if len(raw_text.keys()) == 3:
-                    organ = random.choices(["abdomen", "chest", "pelvis"], weights=[0.1, 0.7, 0.2], k=1)[0]
-                elif len(raw_text.keys()) == 2:
-                    organ = random.choices(list(raw_text.keys()), weights=[0.50, 0.50], k=1)[0]
+        max_tries = 10
+        for _ in range(max_tries):
+            try:
+                if self.mode == "validation":
+                    return self.__getitem_validation__(idx)
+                
+                data = self.data_list[idx]
+                if self.args.splitted_findings:
+                    text_abs_path = data["splitted_findings"]
                 else:
-                    organ = list(raw_text.keys())[0]
-                answer = raw_text[organ]
-        else:
-            print(f"text Error in __getitem__ at index {idx}: {e}, file suffix should be .txt or .json")
-        
-        if self.args.with_impressions:
-            with open(data["impressions"]) as f:
-                raw_text = json.load(f)
-                raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
-                impressions = " ".join(raw_text[organ])
-                answer = f"<FINDINGS>{answer}<FINDINGS><IMPRESSIONS>{impressions}<IMPRESSIONS>"
-        
-        if isinstance(self.prompt, dict):
-            prompt = self.prompt[organ]
-            if self.args.with_template:
-                msg = prompt
-                system = msg.split(".")[0] + "."
-                content = ".".join(msg.split(".")[1:])
-                messages = [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": content}
-                ]
-                prompt = self.tokenizer.apply_chat_template(messages, tokenize=False)
-            question = self.image_tokens + prompt
-        else: 
-            question = self.image_tokens + self.prompt + organ
+                    text_abs_path = data["text"]
 
-        image_path = data["image"]
-        if image_path.startswith('/'):
-            image_abs_path = image_path 
-        else:
-            image_abs_path = os.path.join(self.data_root, image_path)
+                if self.args.triplet:
+                    text_abs_path = text_abs_path.replace("text", "text_triplet")
+                
+                prompt_addition = None
+                if text_abs_path.endswith('.json'):
+                    with open(text_abs_path) as f:
+                        raw_text = json.load(f)
+                        while "findings" in raw_text.keys():
+                            raw_text = raw_text["findings"]
 
-        image = read_image(image_abs_path)
-        image = self.transform(image)
-        image = self._to_uniform_depth(image, data["spacing"], to_spacing=5)
-        if self.args.zoom_in:
-            image = self._zoom_in(image, data["mask"], organ)
+                        raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
+                        if len(raw_text.keys()) == 3:
+                            organ = random.choices(["abdomen", "chest", "pelvis"], weights=[0.1, 0.7, 0.2], k=1)[0]
+                        elif len(raw_text.keys()) == 2:
+                            organ = random.choices(list(raw_text.keys()), weights=[0.50, 0.50], k=1)[0]
+                        else:
+                            organ = list(raw_text.keys())[0]
+                        finding = raw_text[organ]
 
-        image = self.resize_transform(image)
-        seg_mask = None
-        if self.args.with_seg_mask:
-            _, DI, HI, WI = image.shape
-            ext = data["mask"].split(os.sep)[-1].split(".")[-1]
-            seg_mask = read_numpy_or_dicom(data["mask"], ext)
-            seg_mask = self.transform(resize(seg_mask, (DI, HI, WI), anti_aliasing=False)).unsqueeze(0)
+                        if self.args.triplet:
+                            prompt_addition, answer = triplet_prompt(finding, organ=organ, standardize=True)
+                        elif isinstance(finding, dict):
+                            answer = "\n".join([f"{key}: {value}" for key, value in finding.items()])
+                        else:
+                            answer = finding
+                else:
+                    print(f"text Error in __getitem__ at index {idx}: {e}, file suffix should be .txt or .json")
+                
+                if self.args.with_impressions:
+                    with open(data["impressions"]) as f:
+                        raw_text = json.load(f)
+                        raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
+                        impressions = " ".join(raw_text[organ])
+                        answer = f"<FINDINGS>{answer}<FINDINGS><IMPRESSIONS>{impressions}<IMPRESSIONS>"
+                
+                if isinstance(self.prompt, dict):
+                    prompt = self.prompt[organ]
+                    if self.args.with_template:
+                        msg = prompt
+                        system = msg.split(".")[0] + "."
+                        content = ".".join(msg.split(".")[1:])
+                        if prompt_addition:
+                            content += '\n'+prompt_addition
+                        messages = [
+                            {"role": "system", "content": system},
+                            {"role": "user", "content": content}
+                        ]
+                        prompt = self.tokenizer.apply_chat_template(messages, tokenize=False)
+                    question = self.image_tokens + prompt
+                else: 
+                    question = self.image_tokens + self.prompt + organ
 
-        text_tensor = self.tokenizer(
-            question + ' ' + answer, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
-        )
+                image_path = data["image"]
+                if image_path.startswith('/'):
+                    image_abs_path = image_path 
+                else:
+                    image_abs_path = os.path.join(self.data_root, image_path)
 
-        input_id = text_tensor["input_ids"][0]
-        attention_mask = text_tensor["attention_mask"][0]
+                image = read_image(image_abs_path)
+                image = self.transform(image)
+                image = self._to_uniform_depth(image, data["spacing"], to_spacing=5)
+                if self.args.zoom_in:
+                    image = self._zoom_in(image, data["mask"], organ)
 
-        valid_len = torch.sum(attention_mask)
-        if valid_len < len(input_id):
-            input_id[valid_len] = self.tokenizer.eos_token_id
+                image = self.resize_transform(image)
+                seg_mask = None
+                if self.args.with_seg_mask:
+                    _, DI, HI, WI = image.shape
+                    ext = data["mask"].split(os.sep)[-1].split(".")[-1]
+                    seg_mask = read_numpy_or_dicom(data["mask"], ext)
+                    seg_mask = self.transform(resize(seg_mask, (DI, HI, WI), anti_aliasing=False)).unsqueeze(0)
 
-        question_tensor = self.tokenizer(
-            question, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
-        )
+                text_tensor = self.tokenizer(
+                    question + ' ' + answer, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
+                )
 
-        question_len = torch.sum(question_tensor["attention_mask"][0])
+                input_id = text_tensor["input_ids"][0]
+                attention_mask = text_tensor["attention_mask"][0]
 
-        label = input_id.clone()
-        label[:question_len] = -100
-        if self.tokenizer.pad_token_id == self.tokenizer.eos_token_id:
-            label[label == self.tokenizer.pad_token_id] = -100
-            if valid_len < len(label):
-                label[valid_len] = self.tokenizer.eos_token_id
-        else:
-            label[label == self.tokenizer.pad_token_id] = -100
+                valid_len = torch.sum(attention_mask)
+                if valid_len < len(input_id):
+                    input_id[valid_len] = self.tokenizer.eos_token_id
 
-        ret = {
-            'image': image,
-            'input_id': input_id,
-            'label': label,
-            'attention_mask': attention_mask,
-            'segs': seg_mask,
-            'question': question,
-            'answer': answer,
-            'question_type': "Caption",
-        }
+                question_tensor = self.tokenizer(
+                    question, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
+                )
 
-        return ret
+                question_len = torch.sum(question_tensor["attention_mask"][0])
+
+                label = input_id.clone()
+                label[:question_len] = -100
+                if self.tokenizer.pad_token_id == self.tokenizer.eos_token_id:
+                    label[label == self.tokenizer.pad_token_id] = -100
+                    if valid_len < len(label):
+                        label[valid_len] = self.tokenizer.eos_token_id
+                else:
+                    label[label == self.tokenizer.pad_token_id] = -100
+
+                ret = {
+                    'image': image,
+                    'input_id': input_id,
+                    'label': label,
+                    'attention_mask': attention_mask,
+                    'segs': seg_mask,
+                    'question': question,
+                    'answer': answer,
+                    'question_type': "Caption",
+                }
+
+                return ret
+            except Exception as e:
+                print(f"Error in __getitem__ at index {idx}: {e}, name: {self.data_list[idx]}")
+                idx = random.randint(0, len(self.data_list) - 1)
 
 class AMOSVQADataset(Dataset):
     def __init__(self, args, tokenizer, mode="train"):
@@ -430,6 +447,7 @@ class AMOSVQADataset(Dataset):
                     conversation = [{  
                         "role": "system", "content": "You are an AI assistant acting as a radiologist tasked with answering a multiple choice question based on a CT scan."},
                         {"role": "user", "content": self.image_tokens + ' ' + question}]
+                        # {"role": "user", "content": question}]
                     question = self.tokenizer.apply_chat_template(conversation, tokenize=False)
                 else:
                     question = self.image_tokens + ' ' + question
@@ -467,6 +485,121 @@ class AMOSVQADataset(Dataset):
                     'segs': None,
                     'question': question,
                     'answer': answer,
+                    'question_type': "Caption",
+                }
+
+                return ret
+            except Exception as e:
+                print(f"Error in __getitem__ at index {idx}: {e}, name: {self.data_list[idx]}")
+                idx = random.randint(0, len(self.data_list) - 1)
+
+class AMOSImpressions2Findings(Dataset):
+    def __init__(self, args, tokenizer, mode="train"):
+        self.args = args
+        self.data_root = args.data_root
+        self.tokenizer = tokenizer
+        self.mode = mode
+
+        print("Arguments provided in 'args':")
+        for key, value in vars(self.args).items():
+            print(f"{key}: {value}")
+
+        if mode == "train_val":
+            with open(args.json_path, 'r') as file:
+                self.json_file = json.load(file)
+            self.data_list = self.json_file["train"]
+            with open(args.json_path.replace("Training", "Val"), 'r') as file:
+                json_file_val = json.load(file)
+            self.data_list.extend(json_file_val["validation"])
+        else:
+            with open(args.json_path, 'r') as file:
+                self.json_file = json.load(file)
+            self.data_list = self.json_file[mode]
+        self.data_list = self.data_list
+        print(f"Length dataset: {len(self.data_list)}")
+
+        if args.prompt in prompt_templates.keys():               
+            print("Prompt is a dict")
+            self.prompt = prompt_templates[args.prompt]
+        else:
+            self.prompt = args.prompt
+
+        self.caption_prompts = [
+            "abdomen",
+            "chest",
+            "pelvis",
+        ]
+        set_track_meta(False)
+    
+    def __len__(self):
+        return len(self.data_list)
+
+    def __getitem__(self, idx):
+        max_tries = 10
+        for _ in range(max_tries):
+            try:                
+                data = self.data_list[idx]
+                text_abs_path = data["text"]
+                
+                if text_abs_path.endswith('.json'):
+                    with open(text_abs_path) as f:
+                        raw_text = json.load(f)
+                        raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
+                        
+                        if len(raw_text.keys()) == 3:
+                            organ = random.choices(["abdomen", "chest", "pelvis"], weights=[0.1, 0.7, 0.2], k=1)[0]
+                        elif len(raw_text.keys()) == 2:
+                            organ = random.choices(list(raw_text.keys()), weights=[0.50, 0.50], k=1)[0]
+                        else:
+                            organ = list(raw_text.keys())[0]
+                        findings = raw_text[organ]
+                    with open(data["impressions"]) as f:
+                        raw_text = json.load(f)
+                        raw_text = {k: v for k, v in raw_text.items() if k in self.args.organs}
+                        impressions = " ".join(raw_text[organ])
+                else:
+                    print(f"text Error in __getitem__ at index {idx}: {e}, file suffix should be .txt or .json")
+                                
+                messages = [
+                            {"role": "system", "content": f"You are an AI assistant trained to act as a radiologist. You will be given an impression of a {organ} CT, and the goal is to write the findings for this impression"},
+                            {"role": "user", "content": impressions}
+                        ]
+                question = self.tokenizer.apply_chat_template(messages, tokenize=False)
+
+                text_tensor = self.tokenizer(
+                    question + ' ' + findings, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
+                )
+
+                input_id = text_tensor["input_ids"][0]
+                attention_mask = text_tensor["attention_mask"][0]
+
+                valid_len = torch.sum(attention_mask)
+                if valid_len < len(input_id):
+                    input_id[valid_len] = self.tokenizer.eos_token_id
+
+                question_tensor = self.tokenizer(
+                    question, max_length=self.args.max_length, truncation=True, padding="max_length", return_tensors="pt"
+                )
+
+                question_len = torch.sum(question_tensor["attention_mask"][0])
+
+                label = input_id.clone()
+                label[:question_len] = -100
+                if self.tokenizer.pad_token_id == self.tokenizer.eos_token_id:
+                    label[label == self.tokenizer.pad_token_id] = -100
+                    if valid_len < len(label):
+                        label[valid_len] = self.tokenizer.eos_token_id
+                else:
+                    label[label == self.tokenizer.pad_token_id] = -100
+
+                ret = {
+                    'image': None,
+                    'input_id': input_id,
+                    'label': label,
+                    'attention_mask': attention_mask,
+                    'segs': None,
+                    'question': question,
+                    'answer': findings,
                     'question_type': "Caption",
                 }
 
