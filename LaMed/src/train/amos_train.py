@@ -313,7 +313,6 @@ def main():
                 model_args.model_name_or_path,
                 cache_dir=training_args.cache_dir,
                 trust_remote_code=True,
-                token="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"
             )
         else:
             raise ValueError(f"Unknown Model Type {model_args.model_type}")
