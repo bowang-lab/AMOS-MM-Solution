@@ -14,7 +14,7 @@ from LaMed.src.model.language_model import *
 import json
 from tqdm import tqdm
 import monai.transforms as mtf
-from generate_green_score_new import GenerateGreenScore
+from generate_green_score import GenerateGreenScore
 import pandas as pd
 from LaMed.src.dataset.multi_dataset import prompt_templates
 import re
@@ -62,8 +62,7 @@ def custom_collate(batch):
 # Set the seed for reproducibility
 def main():
     parser = argparse.ArgumentParser(description='Script configuration')
-    parser.add_argument('--is_val', type=bool, default=False, help='Validation flag')
-    parser.add_argument('--model_name_or_path', type=str, default='/scratch/ssd004/scratch/mohammed/results/hilt_64_320_1024', help='Model path or name')
+    parser.add_argument('--model_name_or_path', type=str, help='Model path or name')
     parser.add_argument('--json_path', type=str, default="/scratch/ssd004/scratch/mohammed/AMOSMM/AMOSMMVal.json", help='Path to JSON file')
     parser.add_argument('--model_max_length', type=int, default=768, help='Maximum model length')
     parser.add_argument('--proj_out_num', type=int, default=512, help='Project output number')
@@ -88,35 +87,42 @@ def main():
     if "llama" in model_name_or_path:
         model = LamedLlamaForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
+            cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
             torch_dtype=dtype,
             device_map='auto',
             trust_remote_code=True)
     elif "gemma" in model_name_or_path:
         model = LamedGemmaForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
+            cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
             trust_remote_code=True,
             torch_dtype=dtype,
             device_map='auto')
     elif "qwen" in model_name_or_path:
         model = LamedQwen2ForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
+            cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
             trust_remote_code=True,
             torch_dtype=dtype,
             device_map='auto')
+    elif "mistral" in model_name_or_path:
+        model = LamedMistralForCausalLM.from_pretrained(
+            model_name_or_path,
+            cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
+            trust_remote_code=True,
+            torch_dtype=dtype,
+        device_map='auto')
     else:
         model = LamedPhi3ForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
+            cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
             torch_dtype=dtype,
             device_map='auto',
             trust_remote_code=True)
 
     tokenizer = AutoTokenizer.from_pretrained(
         model_name_or_path,
-        cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
+        cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
         model_max_length=model_max_length,
         padding_side="right",
         use_fast=False,
@@ -139,15 +145,15 @@ def main():
     tag = json_path.split(os.sep)[-1].split(".")[0]
     path = model_name_or_path + os.sep + f'{tag}.csv'
 
-    if os.path.exists(path):
-        results = pd.read_csv(path)
-        results = results.to_dict(orient='list')
-    else:
-        results = OrderedDict()
-        results['names'] = []
-        for organ in organs:
-            results[f'generated-{organ}'] = []
-            results[f'gt-{organ}'] = []
+    # if os.path.exists(path):
+    #     results = pd.read_csv(path)
+    #     results = results.to_dict(orient='list')
+    # else:
+    results = OrderedDict()
+    results['names'] = []
+    for organ in organs:
+        results[f'generated-{organ}'] = []
+        results[f'gt-{organ}'] = []
 
     data_args = Namespace()
     data_args.proj_out_num = proj_out_num
@@ -157,7 +163,7 @@ def main():
     data_args.prompt = prompt
     data_args.zoom_in = zoom
     data_args.organs = organs
-    data_args.with_seg_mask = False
+    data_args.with_seg_mask = True
     data_args.with_template= with_template
     data_args.data_img_size = resize_size
 
@@ -166,9 +172,9 @@ def main():
     for item in tqdm(dataset):
         image_name = item["image_name"]
 
-        if image_name in results['names']:
-            print(f"Skipping {image_name}--already done.")
-            continue
+        # if image_name in results['names']:
+        #     print(f"Skipping {image_name}--already done.")
+        #     continue
 
         organs_ = ["abdomen", "pelvis", "chest"]
         if green:
@@ -178,7 +184,8 @@ def main():
             
             image = item["image"][organ].unsqueeze(0).to(device, dtype=dtype)
             input_id = item["input_id"][organ].to(device)
-            generation = model.generate(image, input_id, segs=None, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
+            segs = item["segs"].unsqueeze(0).to(device, dtype=dtype)
+            generation = model.generate(image, input_id, segs=segs, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
             generated_texts = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
             findings_match = re.search(pattern, generated_texts, re.DOTALL)
             generated_texts = findings_match.group(1).strip() if findings_match else generated_texts.strip()
@@ -208,7 +215,7 @@ def main():
 
     if green:
         print("Generating Green")
-        g = GenerateGreenScore(path, cache_dir="/checkpoint/datasets.damaged/med-img-data/amosmm/green", organs=organs)
+        g = GenerateGreenScore(path, cache_dir="/home/jma/Documents/mohammed/amosmm/cache", organs=organs)
         results = g.run()
 
     bleu_scores = {'abdomen': [], 'chest': [], 'pelvis': []}

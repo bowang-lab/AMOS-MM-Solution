@@ -84,19 +84,32 @@ source /h/junma/.mllm/bin/activate
 #   --prompt "simple" \
 #   --proj_out_num 256
 
-CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29506 infer.py \
-  --model_name_or_path /checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/phi3_150_with_impressions  \
-  --json_path Data/AMOSMM_corr.json \
+# CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29506 infer.py \
+#   --model_name_or_path /checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/phi3_150_with_impressions  \
+#   --json_path Data/AMOSMM_corr.json \
+#   --model_max_length 768 \
+#   --prompt "simple" \
+#   --proj_out_num 256
+
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
+  --model_name_or_path /home/jma/Documents/mohammed/amosmm/models/mistral_150_7bv3  \
+  --json_path Data/AMOSMM.json \
   --model_max_length 768 \
   --prompt "simple" \
   --proj_out_num 256
 
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29510 infer.py \
+  --model_name_or_path /home/jma/Documents/mohammed/amosmm/models/phi3_150_with_seg2 \
+  --json_path Data/AMOSMM.json \
+  --model_max_length 1024 \
+  --prompt "simple" \
+  --proj_out_num 256
 
 # CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29560 infer.py \
 #   --model_name_or_path /checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/phi3_150_default  \
 #   --json_path Data/AMOSMM.json \
 #   --model_max_length 768 \
-#   --post_process "focused_inference" \
+#   --post_process "normality" \
 #   --prompt "simple" \
 #   --proj_out_num 256
 

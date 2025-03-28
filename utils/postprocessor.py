@@ -128,7 +128,7 @@ class PostProcessor():
             import torch
             from LaMed.src.model.language_model import LamedPhi3ForCausalLM
             from transformers import AutoTokenizer
-            triplet_model_path = "/checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/triplet_model_3"
+            triplet_model_path = "/checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/triplet_model_4"
             self.model = LamedPhi3ForCausalLM.from_pretrained(
                 triplet_model_path,
                 cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
@@ -227,53 +227,6 @@ class PostProcessor():
                 else add_missing_findings(example, mapping)
                 for example in self.results[organ]
             ]
-        # chest = self.results["generated-chest"]
-        # for i, example in enumerate(chest):
-        #     if isinstance(example, float): # check nans
-        #         continue  
-        #     example = example.split(".")
-        #     for normality in CHEST_MAPPING.keys():
-        #         is_in = False
-        #         for finding in example:
-        #             if all_items_in_string(normality, finding):
-        #                 is_in = True
-        #                 break
-        #         if is_in == False:
-        #             example.insert(0, " " + CHEST_MAPPING[normality])
-        #     chest[i] = ".".join(example).strip()
-        # self.results["generated-chest"] = chest
-
-        # pelvis = self.results["generated-pelvis"]
-        # for i, example in enumerate(pelvis):
-        #     if isinstance(example, float): # check nans
-        #         continue  
-        #     example = example.split(".")
-        #     for normality in PELVIS_MAPPING.keys():
-        #         is_in = False
-        #         for finding in example:
-        #             if all_items_in_string(normality, finding):
-        #                 is_in = True
-        #                 break
-        #         if is_in == False:
-        #             example.insert(0, " " + PELVIS_MAPPING[normality])
-        #     pelvis[i] = ".".join(example).strip()
-        # self.results["generated-pelvis"] = pelvis
-
-        # abdomen = self.results["generated-abdomen"]
-        # for i, example in enumerate(abdomen):
-        #     if isinstance(example, float): # check nans
-        #         continue  
-        #     example = example.split(".")
-        #     for normality in ABDOMEN_MAPPING.keys():
-        #         is_in = False
-        #         for finding in example:
-        #             if all_items_in_string(normality, finding):
-        #                 is_in = True
-        #                 break
-        #         if is_in == False:
-        #             example.insert(0, " " + ABDOMEN_MAPPING[normality])
-        #     abdomen[i] = ".".join(example).strip()
-        # self.results["generated-abdomen"] = abdomen
 
     def run(self):
         if "focused_inference" in self.post_process_list:

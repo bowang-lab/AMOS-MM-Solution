@@ -52,19 +52,19 @@ JOB_ID=$SLURM_JOB_ID
 #     --image_size "32, 256, 256" \
 #     --model_max_length 768
 
-PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
+PYTHONPATH=. accelerate launch --num_processes 2 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --cache_dir /checkpoint/datasets.damaged/med-img-data/amosmm/LaMed/ \
+    --cache_dir /home/jma/Documents/mohammed/amosmm/cache \
     --model_type qwen_3b \
     --lora_enable True \
     --lora_r 16 \
     --vision_tower vit3d \
-    --pretrain_vision_model /checkpoint/datasets.damaged/med-img-data/amosmm/LaMed/M3D-CLIP/pretrained_ViT.bin \
+    --pretrain_vision_model /home/jma/Documents/mohammed/amosmm/models/pretrained_ViT.bin \
     --bf16 True \
-    --output_dir  /checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/qwen_3b_a100 \
+    --output_dir /home/jma/Documents/mohammed/amosmm/models/qwen_3b \
     --num_train_epochs 150 \
-    --per_device_train_batch_size 4 \
+    --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps 1 \
     --evaluation_strategy "no" \
@@ -85,8 +85,7 @@ PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed
     --report_to none \
     --prompt "simple" \
     --task mrg \
-    --json_path /fs01/home/junma/MedicalVLM/Data/AMOSMM_corr.json \
-    --data_root /checkpoint/datasets.damaged/med-img-data/amosmm \
+    --json_path /home/jma/Documents/MedicalVLM/Data/AMOSMM.json \
     --with_template True \
     --image_size "32, 256, 256" \
     --model_max_length 768

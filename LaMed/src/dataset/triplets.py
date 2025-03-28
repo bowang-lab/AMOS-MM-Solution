@@ -15,7 +15,6 @@ COMMON_TRIPLET_STANDARD = {
             ['nodular high-density foci', 'lungs'],
             ['nodule', 'right upper lobe'],
             ['solid nodule', 'right upper lobe'],
-            ['nodules', 'lungs'],
             ['nodules', 'both lungs'],
             ['nodule', 'upper lobe of right lung'],
             ['mass-like lesion', 'right middle lobe'],
@@ -167,13 +166,10 @@ COMMON_TRIPLET_STANDARD = {
         ],
         ("enlargement", "spleen"): [
             ["enlargement", "spleen"],
-            ["enlargement", "spleen"],
             ["enlarged spleen", "spleen"],
         ],
         ("enlargement", "gallbladder"): [
             ["enlargement", "gallbladder"],
-            ["enlargement", "gallbladder"],
-            ["enlarged", "gallbladder"],
             ["enlarged", "gallbladder"],
             ["enlarged gallbladder", "gallbladder"],
             ["enlargement", "gall bladder"],

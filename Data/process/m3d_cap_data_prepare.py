@@ -12,11 +12,12 @@ from unidecode import unidecode
 # input_dir = 'PATH/M3D_Cap/ct_quizze/'
 # output_dir = 'PATH/M3D_Cap_npy/ct_quizze/'
 
-input_dir = 'PATH/M3D_Cap/ct_case/'
-output_dir = 'PATH/M3D_Cap_npy/ct_case/'
+input_dir = '/scratch/ssd004/scratch/junma/amosmm/imagesTr/'
+output_dir = '/scratch/ssd004/scratch/junma/amosmm/imagesTrProcessed/'
 
 # Get all subfolders [00001, 00002....]
-subfolders = [folder for folder in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, folder))]
+# subfolders = [folder for folder in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, folder))]
+
 
 
 transform = mtf.Compose([

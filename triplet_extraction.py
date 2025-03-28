@@ -70,10 +70,8 @@ Examples:
 - "Lungs are clear" → {null, "lungs", false}
 - "Multiple liver lesions noted" → {"lesions", "liver", true}
 - "No focal mass in the pancreas" → {"mass", "pancreas", false}
-- "A nodular low-density lesion is observed in segment 6 of the right lobe of the liver" → {"low-density lesion", "right lobe of liver", true}
-- "A round low-density lesion with clear boundaries in the left inner lobe of the liver" → {"low-density lesion", "left lobe", true}
+- "A nodular low-density lesion is observed in segment 6 of the right lobe of the liver" → {"low-density lesion", "liver", true}
 - "A low-density cystic mass in the tail of the pancreas" → {"cystic mass", "pancreas", true}
-- "A uniformly low-density area in the pericapsular area of the spleen" → {"low-density area", "spleen", true}
 
 Your output should be in JSON format with the following structure:
 {

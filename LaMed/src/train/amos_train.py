@@ -7,7 +7,7 @@ import transformers
 from transformers import AutoTokenizer, LlamaForCausalLM
 from dataclasses import dataclass, field
 from LaMed.src.dataset.multi_dataset import AMOSCapDataset, AMOSVQADataset, AMOSImpressions2Findings, UniDatasets
-from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCausalLM, LamedGemmaForCausalLM, LamedQwen2ForCausalLM
+from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCausalLM, LamedGemmaForCausalLM, LamedQwen2ForCausalLM, LamedMistralForCausalLM
 from LaMed.src.train.lamed_trainer import LaMedTrainer
 from utils import parse_custom_tuple, print_trainable_parameters, process_crops
 
@@ -258,7 +258,7 @@ def main():
         model_max_length=training_args.model_max_length,
         padding_side="right",
         use_fast=False,
-        trust_remote_code=True
+        trust_remote_code=True,
     )
 
     # Define and add special tokens
@@ -285,7 +285,6 @@ def main():
                 model_args.model_name_or_path,
                 cache_dir=training_args.cache_dir,
                 trust_remote_code=True,
-                token="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"
             )
         elif "gemma" in model_args.model_type:
             print("Using gemma")
@@ -293,7 +292,6 @@ def main():
                 model_args.model_name_or_path,
                 cache_dir=training_args.cache_dir,
                 trust_remote_code=True,
-                token="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"
         )
         elif 'phi3' in model_args.model_type:
             print("Using phi")
@@ -308,6 +306,14 @@ def main():
                 model_args.model_name_or_path,
                 cache_dir=training_args.cache_dir,
                 trust_remote_code=True
+            )
+        elif 'mistral' in model_args.model_type:
+            print("Using Mistral")
+            model = LamedMistralForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                cache_dir=training_args.cache_dir,
+                trust_remote_code=True,
+                token="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"
             )
         else:
             raise ValueError(f"Unknown Model Type {model_args.model_type}")

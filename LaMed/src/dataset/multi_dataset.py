@@ -186,6 +186,13 @@ class AMOSCapDataset(Dataset):
             image = self.resize_transform(image)
             images[organ] = image
 
+        seg_mask = None
+        if self.args.with_seg_mask:
+            _, DI, HI, WI = image.shape
+            ext = data["mask"].split(os.sep)[-1].split(".")[-1]
+            seg_mask = read_numpy_or_dicom(data["mask"], ext)
+            seg_mask = self.transform(resize(seg_mask, (DI, HI, WI), anti_aliasing=False)).unsqueeze(0)
+
         input_ids = {}
         for organ in self.args.organs:
             question = questions[organ]
@@ -201,6 +208,7 @@ class AMOSCapDataset(Dataset):
             'input_id': input_ids,
             'question': question,
             'answer': raw_text,
+            'segs': seg_mask,
             'image_name': image_path.split(os.sep)[-1],
             'question_type': "Caption",
         }

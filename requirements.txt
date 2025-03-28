@@ -23,4 +23,3 @@ tqdm==4.66.2
 transformers==4.44.2
 tweepy==4.14.0
 scikit-image
-# green-score==0.0.5  
