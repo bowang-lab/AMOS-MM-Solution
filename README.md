@@ -2,7 +2,7 @@
 This codebase is for our participation in the [MICCAI24 AMOS-MM: Abdominal Multimodal Analysis Challenge](https://www.codabench.org/competitions/3137/).
 
 # Installation
-Requirements `Python >= 3.10.12`
+Requirements `Python >= 3.10.12` and `Python < 3.12` 
 1. Make a python (or conda) virtual environment using: `python -m venv mllm` and activate it `source mllm/bin/activate`.
 2. Clone the repo: `git clone https://github.com/bowang-lab/AMOS-MM-Solution.git` and `cd AMOS-MM-Solution`
 3. Install requirements: `pip install -r requirements.txt`

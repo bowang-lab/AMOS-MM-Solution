@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 # from GREEN.green_score import GREEN
-from green_score import GREEN
+from GREEN.green_score import GREEN
 import json
 import re
 

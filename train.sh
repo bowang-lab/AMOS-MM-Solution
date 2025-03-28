@@ -52,7 +52,7 @@ JOB_ID=$SLURM_JOB_ID
 #     --image_size "32, 256, 256" \
 #     --model_max_length 768
 
-PYTHONPATH=. accelerate launch --num_processes 2 --main_process_port 29500 LaMed/src/train/amos_train.py \
+PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
     --cache_dir /home/jma/Documents/mohammed/amosmm/cache \
@@ -60,7 +60,6 @@ PYTHONPATH=. accelerate launch --num_processes 2 --main_process_port 29500 LaMed
     --lora_enable True \
     --lora_r 16 \
     --vision_tower vit3d \
-    --pretrain_vision_model /home/jma/Documents/mohammed/amosmm/models/pretrained_ViT.bin \
     --bf16 True \
     --output_dir /home/jma/Documents/mohammed/amosmm/models/qwen_3b \
     --num_train_epochs 150 \

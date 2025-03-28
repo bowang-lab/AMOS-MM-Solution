@@ -145,10 +145,6 @@ def main():
     tag = json_path.split(os.sep)[-1].split(".")[0]
     path = model_name_or_path + os.sep + f'{tag}.csv'
 
-    # if os.path.exists(path):
-    #     results = pd.read_csv(path)
-    #     results = results.to_dict(orient='list')
-    # else:
     results = OrderedDict()
     results['names'] = []
     for organ in organs:
@@ -171,10 +167,6 @@ def main():
 
     for item in tqdm(dataset):
         image_name = item["image_name"]
-
-        # if image_name in results['names']:
-        #     print(f"Skipping {image_name}--already done.")
-        #     continue
 
         organs_ = ["abdomen", "pelvis", "chest"]
         if green:
@@ -226,7 +218,6 @@ def main():
     rouge = Rouge()
     ratescore = RaTEScore()
 
-    
     print("Calculating other metrics")
     # categories = organs_
     categories = ["abdomen", "pelvis", "chest"]

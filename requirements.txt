@@ -7,7 +7,7 @@ nibabel==5.2.1
 numpy==1.26.4
 opencv_python==4.9.0.80
 pandas==2.2.2
-peft==0.8.2
+peft==0.10.0
 Pillow==10.3.0
 pycocotools==2.0.7
 Requests==2.31.0
@@ -23,3 +23,8 @@ tqdm==4.66.2
 transformers==4.44.2
 tweepy==4.14.0
 scikit-image
+setuptools
+scikit-learn
+sentence-transformers
+RaTEScore
+medspacy
