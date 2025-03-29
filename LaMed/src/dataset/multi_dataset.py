@@ -65,7 +65,6 @@ class AMOSCapDataset(Dataset):
             with open(args.json_path, 'r') as file:
                 self.json_file = json.load(file)
             self.data_list = self.json_file[mode]
-        self.data_list = self.data_list
         print(f"Length dataset: {len(self.data_list)}")
 
         if args.prompt in prompt_templates.keys():               

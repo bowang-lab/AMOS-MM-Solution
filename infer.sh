@@ -99,7 +99,7 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --proj_out_num 256
 
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29510 infer.py \
-  --model_name_or_path /home/jma/Documents/mohammed/amosmm/models/phi3_150_with_seg2 \
+  --model_name_or_path /datasets/mohammed/amosmm/models/phi3_150_with_seg2 \
   --json_path Data/AMOSMM.json \
   --model_max_length 1024 \
   --prompt "simple" \

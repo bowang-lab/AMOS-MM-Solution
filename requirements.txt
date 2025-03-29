@@ -28,3 +28,5 @@ scikit-learn
 sentence-transformers
 RaTEScore
 medspacy
+sentencepiece
+protobuf

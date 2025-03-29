@@ -207,7 +207,7 @@ def main():
 
     if green:
         print("Generating Green")
-        g = GenerateGreenScore(path, cache_dir="/home/jma/Documents/mohammed/amosmm/cache", organs=organs)
+        g = GenerateGreenScore(path, cache_dir="./GREEN_model", organs=organs)
         results = g.run()
 
     bleu_scores = {'abdomen': [], 'chest': [], 'pelvis': []}

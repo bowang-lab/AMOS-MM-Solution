@@ -1,6 +1,5 @@
 /runs
 **/__pycache__/
-GREEN/
 Data/AMOSMM.json
 Data/AMOSMM_corr.json
 dataset_withsplit.json

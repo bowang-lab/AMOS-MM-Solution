@@ -47,7 +47,7 @@ def tqdm_on_main(*args, **kwargs):
 
 class GREEN:
     def __init__(
-        self, model_name=None, output_dir=".", cpu=False, compute_summary_stats=True, cahce_dir=None
+        self, model_name=None, output_dir=".", cpu=False, compute_summary_stats=True, cache_dir=None
     ):
         super().__init__()
         warnings.filterwarnings(
@@ -98,7 +98,7 @@ class GREEN:
                     else {"": "cpu"}
                 ),
                 torch_dtype=torch.float16,
-                cahce_dir=cahce_dir
+                cache_dir=cache_dir
             )
 
             self.model.eval()
@@ -109,7 +109,7 @@ class GREEN:
                 use_fast=True,
                 trust_remote_code=True,
                 padding_side="left",
-                cahce_dir=cahce_dir
+                cache_dir=cache_dir
             )
 
             chat_template = "{% for message in messages %}\n{% if message['from'] == 'human' %}\n{{ '<|user|>\n' + message['value'] + eos_token }}\n{% elif message['from'] == 'system' %}\n{{ '<|system|>\n' + message['value'] + eos_token }}\n{% elif message['from'] == 'gpt' %}\n{{ '<|assistant|>\n'  + message['value'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"

@@ -55,13 +55,13 @@ JOB_ID=$SLURM_JOB_ID
 PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
     --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
-    --cache_dir /home/jma/Documents/mohammed/amosmm/cache \
+    --cache_dir /datasets/mohammed/amosmm/cache \
     --model_type qwen_3b \
     --lora_enable True \
     --lora_r 16 \
     --vision_tower vit3d \
     --bf16 True \
-    --output_dir /home/jma/Documents/mohammed/amosmm/models/qwen_3b \
+    --output_dir /datasets/mohammed/amosmm/models/qwen_3b \
     --num_train_epochs 150 \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 1 \
