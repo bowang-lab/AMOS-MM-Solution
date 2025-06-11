@@ -1,5 +1,5 @@
-# AMOS-MM-Solution
-This codebase is for our participation in the [MICCAI24 AMOS-MM: Abdominal Multimodal Analysis Challenge](https://www.codabench.org/competitions/3137/).
+# FLARE 2025 3D MLLM Phi3 Baseline
+This repository provides a baseline implementation for the FLARE 2025 3D multimodal medical image challenge.
 
 # Installation
 Requirements `Python >= 3.10.12` and `Python < 3.12` 
