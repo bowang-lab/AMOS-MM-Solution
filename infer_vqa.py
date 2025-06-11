@@ -19,8 +19,6 @@ import pandas as pd
 import random
 
 
-
-
 def seed_everything(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)

@@ -85,6 +85,7 @@ class GREEN:
                     print(
                         "Distributed training with", torch.cuda.device_count(), "GPUs"
                     )
+
         self.model = None
         self.tokenizer = None
         if model_name:
@@ -98,7 +99,7 @@ class GREEN:
                     else {"": "cpu"}
                 ),
                 torch_dtype=torch.float16,
-                cache_dir=cache_dir
+                cache_dir=cache_dir,
             )
 
             self.model.eval()
@@ -109,7 +110,7 @@ class GREEN:
                 use_fast=True,
                 trust_remote_code=True,
                 padding_side="left",
-                cache_dir=cache_dir
+                cache_dir=cache_dir,
             )
 
             chat_template = "{% for message in messages %}\n{% if message['from'] == 'human' %}\n{{ '<|user|>\n' + message['value'] + eos_token }}\n{% elif message['from'] == 'system' %}\n{{ '<|system|>\n' + message['value'] + eos_token }}\n{% elif message['from'] == 'gpt' %}\n{{ '<|assistant|>\n'  + message['value'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"
@@ -122,14 +123,14 @@ class GREEN:
         self.compute_summary_stats = compute_summary_stats
 
     def __call__(self, refs, hyps):
-        if is_main_process():
-            print("Processing data...making prompts")
+        # if is_main_process():
+        #     print("Processing data...making prompts")
 
         dataset = Dataset.from_dict({"reference": refs, "prediction": hyps})
 
         dataset = self.process_data(dataset)
-        if is_main_process():
-            print("Done.")
+        # if is_main_process():
+        #     print("Done.")
 
         self.dataset = dataset
 
@@ -138,8 +139,8 @@ class GREEN:
         mean, std, green_scores, summary, results_df = self.infer()
 
         t = time.time() - t
-        if is_main_process():
-            print("Seconds per example: ", t / len(refs))
+        # if is_main_process():
+        #     print("Seconds per example: ", t / len(refs))
 
         if not is_main_process():
             print(f"Rank {dist.get_rank()} exiting.")
@@ -170,17 +171,14 @@ class GREEN:
                 rank=get_rank(),
                 world_size=int(os.environ["WORLD_SIZE"]),
             )
-            print("Distributed dataset created on rank: ", int(os.environ["RANK"]))
+            # print("Distributed dataset created on rank: ", int(os.environ["RANK"]))
         else:
             dataset_dist = self.dataset
 
         local_completions = []
         local_references = []
 
-        for batch in tqdm_on_main(
-            iterable=dataset_dist.iter(batch_size=self.batch_size),
-            total=len(dataset_dist) // self.batch_size,
-        ):
+        for batch in dataset_dist.iter(batch_size=self.batch_size):
             local_references.extend(batch["prompt"])
             local_completions.extend(self.get_response(batch))
 
@@ -192,8 +190,8 @@ class GREEN:
             self.completions = local_completions
             self.prompts = local_references
 
-        if is_main_process():
-            print("==== End Inference ====")
+        # if is_main_process():
+        #     print("==== End Inference ====")
 
         if len(self.completions) != len(self.prompts):
             print("Length of prompts and completions are not equal!")
@@ -416,7 +414,7 @@ class GREEN:
         return dict_acc
 
     def compute_summary(self):
-        print("Computing summary ...")
+        # print("Computing summary ...")
         representative_sentences = self.get_representative_sentences(self.completions)
         accuracies = self.compute_accuracy(self.completions)
         mean = np.mean(self.green_scores)

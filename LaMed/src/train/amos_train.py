@@ -6,7 +6,7 @@ import torch
 import transformers
 from transformers import AutoTokenizer, LlamaForCausalLM
 from dataclasses import dataclass, field
-from LaMed.src.dataset.multi_dataset import AMOSCapDataset, AMOSVQADataset, AMOSImpressions2Findings, UniDatasets
+from LaMed.src.dataset.multi_dataset import AMOSCapDataset, AMOSVQADataset, UniDatasets
 from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCausalLM, LamedGemmaForCausalLM, LamedQwen2ForCausalLM, LamedMistralForCausalLM
 from LaMed.src.train.lamed_trainer import LaMedTrainer
 from utils import parse_custom_tuple, print_trainable_parameters, process_crops
@@ -80,9 +80,14 @@ class ModelArguments:
 
 @dataclass
 class DataArguments:
-    data_root: str = field(default="/scratch/ssd004/datasets/med-img-data/amosmm/", metadata={"help": "Root directory for all data."})
-
-    json_path: str = field(default="/scratch/ssd004/scratch/mohammed/AMOSMM/AMOSMMTraining.json", metadata={"help": "Path to caption data."})
+    json_path: List[str] = field(
+        default_factory=list,
+        metadata={"help": "One or more paths to JSON files (e.g. train/CT-AMOS-Tr.json train/CT-RATE-Tr.json)"}
+    )
+    data_root: List[str] = field(
+        default_factory=list,
+        metadata={"help": "One or more data-root directories corresponding to each JSON"}
+    )
     task: str = "mrg"
     with_gen: bool = field(default=False)
 
@@ -213,21 +218,19 @@ def find_all_linear_names(model):
 @dataclass
 class DataCollator:
     def __call__(self, batch: list) -> dict:
-        images, input_ids, labels, attention_mask, segs = tuple(
-            [b[key] for b in batch] for key in ('image', 'input_id', 'label', 'attention_mask', "segs"))
+        images, input_ids, labels, attention_mask = tuple(
+            [b[key] for b in batch] for key in ('image', 'input_id', 'label', 'attention_mask'))
 
         images = torch.cat([img.unsqueeze(0) for img in images if img is not None], dim=0) if images[0] is not None else None
         input_ids = torch.cat([_.unsqueeze(0) for _ in input_ids], dim=0)
         labels = torch.cat([_.unsqueeze(0) for _ in labels], dim=0)
         attention_mask = torch.cat([_.unsqueeze(0) for _ in attention_mask], dim=0)
-        segs = torch.cat([seg.unsqueeze(0) for seg in segs if seg is not None], dim=0) if segs[0] is not None else None
 
         return_dict = dict(
             images=images,
             input_ids=input_ids,
             labels=labels,
             attention_mask=attention_mask,
-            segs=segs
         )
 
         return return_dict
@@ -258,7 +261,7 @@ def main():
         model_max_length=training_args.model_max_length,
         padding_side="right",
         use_fast=False,
-        trust_remote_code=True,
+        trust_remote_code=True
     )
 
     # Define and add special tokens
@@ -380,9 +383,6 @@ def main():
     data_args.proj_out_num = model.get_model().mm_projector.proj_out_num
     data_args.with_impressions = model_args.with_impressions
     data_args.prompt = model_args.prompt
-    data_args.organs = model_args.organs
-    data_args.zoom_in = model_args.zoom_in
-    data_args.with_seg_mask = model_args.with_seg
     data_args.with_template = model_args.with_template
 
     # MRG Args
@@ -390,10 +390,6 @@ def main():
 
     # VQA Args
     data_args.only_letter = model_args.only_letter
-    data_args.with_reason = model_args.with_reason
-    data_args.with_report = model_args.with_report
-    data_args.with_added_q = model_args.with_added_q
-    data_args.splitted_findings = model_args.splitted_findings
 
     if model_args.any_res_image_size:
        data_args.data_img_size = model_args.any_res_image_size
@@ -406,8 +402,6 @@ def main():
         train_dataset = AMOSCapDataset(data_args, tokenizer, mode='train')
     elif data_args.task == "vqa":
         train_dataset = AMOSVQADataset(data_args, tokenizer, mode='train')
-    elif data_args.task == "i2f":
-        train_dataset = AMOSImpressions2Findings(data_args, tokenizer, mode='train')
     elif data_args.task == "all":
         train_dataset = UniDatasets(data_args, tokenizer=tokenizer, mode='train')
     else:
