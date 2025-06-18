@@ -18,11 +18,9 @@ Once that is done, we need to pre-process the data. You can do that by using the
 
 `python Data/process/process_ct.py --json_in <PATH_TO_DATA_JSON> --nifti_dir <PATH_TO_DATA_DIR> --out_dir <OUTPUT_PATH> --workers <NUM_OF_WORKERS>`
 
-This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the HuggingFace dataset repo inside the main `AMOS-MM-Solution` dir, then the script would be:
+This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the HuggingFace dataset repo inside the main `AMOS-MM-Solution` directory, then the script for pre-processing the validation set would be:
 
 `python process_ct.py --json_in FLARE-Task5-MLLM-3D/validation/val.json --nifti_dir FLARE-Task5-MLLM-3D/validation/images --out_dir FLARE-Task5-MLLM-3D/validation/val_processed`
-
-for pre-processing the validation set.
 
 ## 2. Training 
 
@@ -70,7 +68,7 @@ PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed
 ```
 For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). 
 
-To change the LLM used, you have to change the checkpoint path in HuggingFace using the arguemnt `model_name_or_path`
+To change the LLM used, you have to change the checkpoint path in HuggingFace using the arguemnt `model_name_or_path`.
 
 The supported models are: `Phi3`, `Llama` famliy, `Gemma` famliy, `Qwen2`, and `Mistral`. If you change `model_name_or_path`, you have to also change `model_type` to the correct model type. 
 
@@ -103,26 +101,26 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --proj_out_num 256
 ```
 
-This will generate the `predictions.csv` file. This file will contain the global and local VQA predictions. NOTE: the local predictions need to be in a comma separated format for each chain. For example, the answer for the following chain:
+This will generate the `predictions.csv` file. This file will contain the global and local VQA predictions. NOTE: the local predictions need to be in a comma-separated format for each chain. For example, the answer for the following chain:
 
 ```
 {
-"id": 1,
-"follow_up": -1,
-"question": "Is there evidence of cirrhosis in the liver?",
-"type": "finding_identification"
+    "id": 1,
+    "follow_up": -1,
+    "question": "Is there evidence of cirrhosis in the liver?",
+    "type": "finding_identification"
 },
 {
-"id": 2,
-"follow_up": 1,
-"question": "Which of the following features are present in the liver?",
-"type": "appearance_or_pattern",
-"choices": [
-  "Small volume, uneven surface, disproportionate lobes, widened fissures",
-  "Uniform size, smooth surface, normal fissures",
-  "Enlarged volume, smooth surface, narrowed fissures",
-  "None of the above"
-    ]
+    "id": 2,
+    "follow_up": 1,
+    "question": "Which of the following features are present in the liver?",
+    "type": "appearance_or_pattern",
+    "choices": [
+      "Small volume, uneven surface, disproportionate lobes, widened fissures",
+      "Uniform size, smooth surface, normal fissures",
+      "Enlarged volume, smooth surface, narrowed fissures",
+      "None of the above"
+     ]
 }
 ```
 
