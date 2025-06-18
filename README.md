@@ -88,6 +88,8 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --proj_out_num 256
 ```
 
+After the scripts finishes running, this will generate 2 files at the same path where the model lives, provided in `--model_name_or_path`. The first file is `<NAME_OF_VAL_JSON>.csv`. This file contains the model generated reports and ground truth reports for each example, as well as GREEN score for each region. Any region mentioned in the ground truth report but not in model generated report is assigned a score of zero (false negative). Any region mentioned in the prediction but not the ground truth is compared with a normal ground truth, where the reference report becomes f"{region} is normal." The pipeline for validation can be found at `generate_green_score.py`.
+
 To do VQA inference, run the following command:
 ```
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer_vqa.py   \
@@ -96,6 +98,35 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --image_size 32 256 256 \
   --model_max_length 512 \
   --proj_out_num 256
+```
+
+## Results
+
+The expected baseline resutls are:
+
+Report Generation:
+
+```
+{
+    "liver": 0.24076031746031748,
+    "biliary system": 0.48416762931587704,
+    "spleen": 0.5690602836879433,
+    "pancreas": 0.5350826044703595,
+    "kidneys": 0.22434423813734167,
+    "gastrointestinal tract": 0.07610105074893808,
+    "lymphatic system": 0.4945972495088409,
+    "abdominal cavity and peritoneum": 0.31478494623655917,
+    "endocrine system": 0.2296228710462287,
+    "blood vessels": 0.10157232704402513,
+    "musculoskeletal system": 0.4254729288975865,
+    "lungs and pleura": 0.2141898823021273,
+    "respiratory tract": 0.7048872180451128,
+    "heart": 0.6663230240549824,
+    "mediastinum": 0.5191605839416059,
+    "esophagus": 0.6625850340136055,
+    "breast tissue": 0.0,
+    "diaphragm": 0.0
+}
 ```
 
 # Acknowledgements
