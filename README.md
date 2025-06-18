@@ -11,29 +11,45 @@ Requirements `Python >= 3.10.12` and `Python < 3.12`
 We provide command line scripts for training on both tasks in the competition (medical report generation and visual question answering) and for doing inference with our post-processing technique.
 
 ## Data Preperation
-To prepare the data, a json file needs to be made using the same structure as the one in `Data/AMOSMM.json`. After that is prepared, follow the steps below to trian the model and do inference.
+First clone the HuggingFace repo, where the dataset lives using:
+`git clone https://huggingface.co/datasets/FLARE-MedFM/FLARE-Task5-MLLM-3D`
 
-## Training for MRG and VQA
-After data is prepared, run the following command to train a Llama 3.1 model for report generation.
+Once that is done, we need to pre-process the data. You can do that by using the script:
+
+`python Data/process/process_ct.py --json_in <PATH_TO_DATA_JSON> --nifti_dir <PATH_TO_DATA_DIR> --out_dir <OUTPUT_PATH> --workers <NUM_OF_WORKERS>`
+
+This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the repo inside the main `AMOS-MM-Solution` dir, then the script would be:
+
+`python process_ct.py --json_in FLARE-Task5-MLLM-3D/validation/val.json --nifti_dir FLARE-Task5-MLLM-3D/validation/images --out_dir FLARE-Task5-MLLM-3D/validation/val_processed`
+
+for pre-processing the validation set.
+
+## Training 
+
+Once pre-processing is done, you can train a baseline model using:
 
 ```
 PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
-    --model_name_or_path meta-llama/Meta-Llama-3.1-8B-Instruct \
-    --cache_dir "path/to/cache/dir" \
-    --model_type llama \
-    --freeze_llm True \
+    --model_name_or_path microsoft/Phi-3-mini-4k-instruct \
+    --cache_dir <CACHE_DIR> \
+    --model_type phi3 \
+    --lora_enable True \
+    --lora_r 16 \
     --vision_tower vit3d \
-    --pretrain_vision_model "path/to/vision/model" \
+    --pretrain_vision_model <VIT_PATH> \
     --bf16 True \
-    --output_dir "output/dir" \
-    --num_train_epochs 100 \
+    --output_dir results/baseline \
+    --num_train_epochs 75 \
     --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 1 \
     --evaluation_strategy "no" \
     --do_eval False \
     --eval_accumulation_steps 1 \
+    --eval_steps 0.99 \
     --save_strategy "steps" \
-    --save_steps 2000 \
+    --save_steps 20000 \
     --save_total_limit 1 \
     --learning_rate 5e-5 \
     --weight_decay 0. \
@@ -41,19 +57,19 @@ PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed
     --lr_scheduler_type "cosine" \
     --logging_steps 0.001 \
     --gradient_checkpointing False \
-    --dataloader_pin_memory True\
+    --dataloader_pin_memory True \
     --dataloader_num_workers 4 \
     --report_to none \
     --prompt "simple" \
-    --task mrg \
-    --json_path "path/to/json" \
-    --image_size "32, 256, 256" \
+    --task all \
+    --json_path <PATH_TO_AMOS_JSON> <PATH_TO_CT-RATE_JSON> \
+    --data_root <PATH_TO_AMOS_VOLUMES> <PATH_TO_CT-RATE_VOLUMES> \
     --with_template True \
-    --model_max_length 768
+    --image_size "32, 256, 256" \
+    --model_max_length 1024
 ```
-The argument `json_path` should point to the path of the json file we just prepared. Additionally, you have to set the `cache_dir` and `pretrain_vision_model`. For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). We provide additional arguments for this task like `zoom_in`, which uses organ segmentation masks to crop the abdomen based on a specific region (abdomen, chest, or pelvis), and `prompt` which controls the prompt. The "simple" prompt used can be found in `LaMed/src/dataset/prompts.py`.
+For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). 
 
-To finetune your model for VQA instead of medical report generation, simple change the `task` argument to vqa. There are additional arguments for VQA, like `only_letter` and `with_reason`.
 
 ## Inference
 To do inference for MRG, run the following command:
