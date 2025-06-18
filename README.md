@@ -18,7 +18,7 @@ Once that is done, we need to pre-process the data. You can do that by using the
 
 `python Data/process/process_ct.py --json_in <PATH_TO_DATA_JSON> --nifti_dir <PATH_TO_DATA_DIR> --out_dir <OUTPUT_PATH> --workers <NUM_OF_WORKERS>`
 
-This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the repo inside the main `AMOS-MM-Solution` dir, then the script would be:
+This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the HuggingFace dataset repo inside the main `AMOS-MM-Solution` dir, then the script would be:
 
 `python process_ct.py --json_in FLARE-Task5-MLLM-3D/validation/val.json --nifti_dir FLARE-Task5-MLLM-3D/validation/images --out_dir FLARE-Task5-MLLM-3D/validation/val_processed`
 
@@ -70,6 +70,11 @@ PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed
 ```
 For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). 
 
+To change the LLM used, you have to change the checkpoint path in HuggingFace using the arguemnt `model_name_or_path`
+
+The supported models are: `Phi3`, `Llama` famliy, `Gemma` famliy, `Qwen2`, and `Mistral`. If you change `model_name_or_path`, you have to also change `model_type` to the correct model type. 
+
+The baseline uses LoRA fine-tuning for the LLM. You can disable that to fully fine-tune the model using `--lora_enable False`. If you want to freeze the LLM, there is an additional argument `--freeze_llm True`. 
 
 ## 3. Inference
 To do inference for report generation, run the following command:
