@@ -299,99 +299,100 @@ class AMOSVQADataset(Dataset):
     def __getitem__(self, idx: int):
         max_tries = 10
         for _ in range(max_tries):
-            try:
-                data = self.data_list[idx]
+            # try:
+            data = self.data_list[idx]
 
-                img_path = data["volume_path"]             
-                image = self.transform(read_image(img_path))
+            img_path = data["volume_path"]             
+            image = self.transform(read_image(img_path))
 
-                if len(data["local_vqa"]) == 0:
-                    use_global = True
-                else:
-                    use_global = random.random() < 0.5 and data.get("global_vqa")
-                if use_global:
-                    vqa = random.choice(data["global_vqa"])
-                    q_txt  = vqa["question"].rstrip()
-                    ans    = vqa["answer"]
-                    ans    = ", ".join(ans) if isinstance(ans, list) else ans
-                    if "choices" in vqa and vqa["choices"]:
-                        choices = vqa["choices"]
-                        q_txt = f"{q_txt} Choices: {choices}"
-                else:  
-                    locals_ = data["local_vqa"]
-                    root = random.choice([q for q in locals_ if q["follow_up"] == -1])
-                    chain = [root] + [q for q in locals_ if q["follow_up"] == root["id"]]
+            if len(data["local_vqa"]) == 0:
+                use_global = True
+            else:
+                use_global = random.random() < 0.5 
+                
+            if use_global:
+                vqa = data["global_vqa"][0]
+                q_txt  = vqa["question"].rstrip()
+                ans    = vqa["answer"]
+                ans    = ", ".join(ans) if isinstance(ans, list) else ans
+                if "choices" in vqa and vqa["choices"]:
+                    choices = vqa["choices"]
+                    q_txt = f"{q_txt} Choices: {choices}"
+            else:  
+                locals_ = data["local_vqa"]
+                root = random.choice([q for q in locals_ if q["follow_up"] == -1])
+                chain = [root] + [q for q in locals_ if q["follow_up"] == root["id"]]
 
-                    q_lines, a_lines = [], []
-                    for i, q in enumerate(chain, start=1):
-                        q_line = q["question"].rstrip()
-                        if "choices" in q and q["choices"]:
-                            choices = q["choices"]
-                            q_line = f"{q_line} Choices: {choices}"
-                        q_lines.append(f"{i}. {q_line}")
-                        a_lines.append(f"{i}. {q['answer']}")
+                q_lines, a_lines = [], []
+                for i, q in enumerate(chain, start=1):
+                    q_line = q["question"].rstrip()
+                    if "choices" in q and q["choices"]:
+                        choices = q["choices"]
+                        q_line = f"{q_line} Choices: {choices}"
+                    q_lines.append(f"{i}. {q_line}")
+                    a_lines.append(f"{i}. {q['answer']}")
 
-                    q_txt = "\n".join(q_lines)    
-                    ans   = "\n".join(a_lines) 
+                q_txt = "\n".join(q_lines)    
+                ans   = "\n".join(a_lines) 
 
-                conversation = [
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are an AI assistant acting as a radiologist tasked with "
-                            "answering a multiple-choice question based on a CT scan."
-                        ),
-                    },
-                    {"role": "user", "content": self.image_tokens + " " + q_txt},
-                ]
-                prompt = self.tokenizer.apply_chat_template(
-                    conversation, tokenize=False
-                )
+            conversation = [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are an AI assistant acting as a radiologist tasked with "
+                        "answering a multiple-choice question based on a CT scan."
+                    ),
+                },
+                {"role": "user", "content": self.image_tokens + " " + q_txt},
+            ]
+            prompt = self.tokenizer.apply_chat_template(
+                conversation, tokenize=False
+            )
+            
+            pair = self.tokenizer(
+                prompt + " " + ans,
+                max_length=self.args.max_length,
+                truncation=True,
+                padding="max_length",
+                return_tensors="pt",
+            )
+            input_id, attn = pair["input_ids"][0], pair["attention_mask"][0]
 
-                pair = self.tokenizer(
-                    prompt + " " + ans,
-                    max_length=self.args.max_length,
-                    truncation=True,
-                    padding="max_length",
-                    return_tensors="pt",
-                )
-                input_id, attn = pair["input_ids"][0], pair["attention_mask"][0]
+            valid_len = torch.sum(attn)
+            if valid_len < len(input_id):
+                input_id[valid_len] = self.tokenizer.eos_token_id
 
-                valid_len = torch.sum(attn)
-                if valid_len < len(input_id):
-                    input_id[valid_len] = self.tokenizer.eos_token_id
+            q_only = self.tokenizer(
+                prompt,
+                max_length=self.args.max_length,
+                truncation=True,
+                padding="max_length",
+                return_tensors="pt",
+            )
+            q_len = torch.sum(q_only["attention_mask"][0])
 
-                q_only = self.tokenizer(
-                    prompt,
-                    max_length=self.args.max_length,
-                    truncation=True,
-                    padding="max_length",
-                    return_tensors="pt",
-                )
-                q_len = torch.sum(q_only["attention_mask"][0])
+            label = input_id.clone()
+            label[:q_len] = -100  # mask question tokens
+            if self.tokenizer.pad_token_id == self.tokenizer.eos_token_id:
+                label[label == self.tokenizer.pad_token_id] = -100
+                if valid_len < len(label):
+                    label[valid_len] = self.tokenizer.eos_token_id
+            else:
+                label[label == self.tokenizer.pad_token_id] = -100
 
-                label = input_id.clone()
-                label[:q_len] = -100  # mask question tokens
-                if self.tokenizer.pad_token_id == self.tokenizer.eos_token_id:
-                    label[label == self.tokenizer.pad_token_id] = -100
-                    if valid_len < len(label):
-                        label[valid_len] = self.tokenizer.eos_token_id
-                else:
-                    label[label == self.tokenizer.pad_token_id] = -100
+            return {
+                "image":          image,
+                "input_id":       input_id,
+                "label":          label,
+                "attention_mask": attn,
+                "question":       prompt,
+                "answer":         ans,
+                "question_type":  "global" if use_global else "local_chain",
+            }
 
-                return {
-                    "image":          image,
-                    "input_id":       input_id,
-                    "label":          label,
-                    "attention_mask": attn,
-                    "question":       prompt,
-                    "answer":         ans,
-                    "question_type":  "global" if use_global else "local_chain",
-                }
-
-            except Exception as exc:
-                print(f"[WARN] __getitem__ failed at {idx}: {exc}")
-                idx = random.randint(0, len(self.data_list) - 1)
+            # except Exception as exc:
+            #     print(f"[WARN] __getitem__ failed at {idx}: {exc}")
+            #     idx = random.randint(0, len(self.data_list) - 1)
 
 class UniDatasets(Dataset):
     def __init__(self, args, tokenizer, mode='train', **kwargs):

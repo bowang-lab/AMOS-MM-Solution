@@ -85,9 +85,10 @@ class GenerateGreenScore:
             for r, sc in zip(matching_regions, green_list):
                 region_scores[r] = sc
 
-        # hallucinations 
+        # hallucinations, assume gt is normal
         for r in gen_dict.keys() - gt_dict.keys():
-            region_scores[r] = 0.0
+            _, _, green_list, *_ = self.model(refs=[gen_dict[r]], hyps=[f"{r} is normal."])
+            region_scores[r] = green_list[0]
 
         # omissions 
         for r in gt_dict.keys() - gen_dict.keys():
@@ -96,15 +97,18 @@ class GenerateGreenScore:
         return region_scores
 
     def generate_scores(self):
-        if "green"   not in self.df.columns: self.df["green"]   = -1.0
-        if "details" not in self.df.columns: self.df["details"] = ""
+        # if "green"   not in self.df.columns: self.df["green"]   = -1.0
+        # if "details" not in self.df.columns: self.df["details"] = ""
 
+        self.df["green"]   = -1.0
+        self.df["details"] = ""
+        
         for idx, row in tqdm(self.df.iterrows(), total=len(self.df)):
             scores = self._compute_region_scores(row["gt"], row["generated"])
 
             for region in scores:
                 if region not in self.df.columns:
-                    self.df[region] = 0.0      
+                    self.df[region] = 0.0     
 
             for region, sc in scores.items():
                 self.df.at[idx, region] = sc

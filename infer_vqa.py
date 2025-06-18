@@ -1,226 +1,154 @@
-import argparse
+#!/usr/bin/env python3
+import argparse, json, os, random, warnings, re
+from pathlib import Path
+
 import numpy as np
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import SimpleITK as sitk
-from skimage.transform import resize
-from collections import OrderedDict
-import warnings
-warnings.filterwarnings('ignore')
-import os
-join = os.path.join
-from LaMed.src.model.language_model import *
-from collections import OrderedDict
-import json
-from tqdm import tqdm
-import monai.transforms as mtf
-from generate_green_score import GenerateGreenScore
 import pandas as pd
-import random
+import torch
+import monai.transforms as mtf
+from tqdm import tqdm
+from transformers import AutoTokenizer
 
+from LaMed.src.model.language_model import LamedPhi3ForCausalLM
+from LaMed.src.dataset.multi_dataset import read_image
 
-def seed_everything(seed):
+warnings.filterwarnings("ignore")
+join = os.path.join
+
+def seed_everything(seed: int = 42):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    np.random.seed(seed)
-    torch.backends.cudnn.benchmark = False
-    torch.backends.cudnn.deterministic = True
     torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
-# Set the seed for reproducibility
+def format_pred(pred: str) -> str:
+    lines = [l.strip() for l in pred.splitlines() if l.strip()]
+    numbered = [
+        re.sub(r"^\s*\d+\.\s*", "", l).strip()
+        for l in lines
+        if re.match(r"^\s*\d+\.\s*", l)
+    ]
+    return ", ".join(numbered) if numbered and len(numbered) == len(lines) else pred
+
+def build_prompt(q_txt: str, proj_tokens: int, tokenizer) -> str:
+    """Exact same chat-template wrapper used during training."""
+    image_tokens = "<im_patch>" * proj_tokens
+    conversation = [
+        {
+            "role": "system",
+            "content": (
+                "You are an AI assistant acting as a radiologist tasked with "
+                "answering a multiple-choice question based on a CT scan."
+            ),
+        },
+        {"role": "user", "content": image_tokens + " " + q_txt},
+    ]
+    return tokenizer.apply_chat_template(conversation, tokenize=False)
+
 def main():
-    parser = argparse.ArgumentParser(description='Script configuration')
-    parser.add_argument('--image_size', type=int, nargs=3, default=(32, 256, 256), help='Image size as a tuple (C, H, W)')
-    parser.add_argument('--model_name_or_path', type=str, default='/scratch/ssd004/scratch/mohammed/results/hilt_64_320_1024', help='Model path or name')
-    parser.add_argument('--json_path', type=str, default="/scratch/ssd004/scratch/mohammed/AMOSMM/AMOSMMVal.json", help='Path to JSON file')
-    parser.add_argument('--model_max_length', type=int, default=768, help='Maximum model length')
-    parser.add_argument('--proj_out_num', type=int, default=512, help='Project output number')
-    parser.add_argument('--image_path', type=str, default="/scratch/ssd004/datasets/med-img-data/amosmm/ori_nii/imagesVa", help='Path to the image directory')
-    parser.add_argument("--with_acc", type=bool, default=False)
-    
-    args = parser.parse_args()
+    p = argparse.ArgumentParser("AMOS-VQA inference (identical prompt setup)")
+    p.add_argument("--model_name_or_path")
+    p.add_argument("--json_path", required=True, help="Validation JSON file")
+    p.add_argument("--data_root", required=True, help="Folder with volumes")
+    p.add_argument("--model_max_length", type=int, default=768)
+    p.add_argument("--proj_out_num", type=int, default=256)
+    args = p.parse_args()
 
-    print("Arguments received:")
-    print(f"image_size: {args.image_size}")
-    print(f"model_name_or_path: {args.model_name_or_path}")
-    print(f"json_path: {args.json_path}")
-    print(f"model_max_length: {args.model_max_length}")
-    print(f"proj_out_num: {args.proj_out_num}")
-    print(f"image_path: {args.image_path}")
+    seed_everything()
+    device, dtype = torch.device("cuda"), torch.bfloat16
 
-    seed_everything(42)
+    with open(args.json_path) as f:
+        dataset = json.load(f)
 
-    device = torch.device('cuda') # 'cpu', 'cuda'
-    dtype = torch.bfloat16 # or bfloat16, float16, float32
-        
-    model_name_or_path = args.model_name_or_path
-    json_path = args.json_path
-    model_max_length = args.model_max_length
-    proj_out_num = args.proj_out_num
-    image_path = args.image_path
-    with_acc = args.with_acc
-        
+    model = LamedPhi3ForCausalLM.from_pretrained(
+        args.model_name_or_path,
+        torch_dtype=dtype,
+        device_map="auto",
+        trust_remote_code=True,
+    ).to(device)
 
-    with open(json_path) as f:
-        data = json.load(f)
-
-    dataset = data['validation']
-
-    if "llama" in model_name_or_path:
-        model = LamedLlamaForCausalLM.from_pretrained(
-            model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
-            torch_dtype=dtype,
-            device_map='auto',
-            trust_remote_code=True)
-    elif "gemma" in model_name_or_path:
-        model = LamedGemmaForCausalLM.from_pretrained(
-            model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
-            trust_remote_code=True,
-            torch_dtype=dtype,
-            device_map='auto')
-    else:
-        model = LamedPhi3ForCausalLM.from_pretrained(
-            model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
-            torch_dtype=dtype,
-            device_map='auto',
-            trust_remote_code=True)
     tokenizer = AutoTokenizer.from_pretrained(
-        model_name_or_path,
-        cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
-        model_max_length=model_max_length,
+        args.model_name_or_path,
+        model_max_length=args.model_max_length,
         padding_side="right",
         use_fast=False,
-        trust_remote_code=True
+        trust_remote_code=True,
     )
 
-    if model.config.any_res_image_size:
-        resize_size = model.config.any_res_image_size
-    else:
-        resize_size = model.config.image_size
+    resize_size = model.config.image_size
+    transform = mtf.Compose([mtf.Resize(resize_size), mtf.ToTensor(dtype=torch.float)])
+    proj_tokens = args.proj_out_num * model.config.multipler
 
-    transform = mtf.Compose(
-        [
-            mtf.Resize(resize_size),
-            mtf.ToTensor(dtype=torch.float),
-        ]
-    )
+    rows = []
 
-    model = model.to(device=device)
-    template = True
+    for sample in tqdm(dataset):
+        case_id = sample["case_id"]
+        img_path = join(args.data_root, case_id)
+        image = transform(read_image(img_path)).unsqueeze(0).to(device, dtype)
 
-    tag = json_path.split(os.sep)[-1].split(".")[0]
-    path = model_name_or_path + os.sep + f'{tag}.json'
-    results = OrderedDict()
-    results["validation"] = []
+        for g in sample["global_vqa"]:
+            q_txt = g["question"].rstrip()
+            if "choices" in g and g["choices"]:
+                q_txt = f"{q_txt} Choices: {g['choices']}"
 
-    correct, total = 0, 0    
-    wrongs = []
-    for item in tqdm(dataset):
-        case_ = {}
-        image_path = item['image']
-        image_name = image_path.split(os.sep)[-1]
+            prompt = build_prompt(q_txt, proj_tokens, tokenizer)
+            input_ids = tokenizer(prompt, return_tensors="pt")["input_ids"].to(device)
 
-        case_["image"] = "./imagesTr/" + image_name + "nii.gz" 
-        case_["labels"] = {"qa": []}
+            out = model.generate(
+                image, input_ids,
+                max_new_tokens=128, do_sample=True, top_p=0.9, temperature=1.0
+            )
+            pred = tokenizer.decode(out[0], skip_special_tokens=True).replace(prompt, "").strip()
 
-        ext = image_name.split(".")[-1]
+            rows.append(dict(
+                case_id=case_id,
+                scope="global",
+                question_id="",
+                question=g["question"],
+                prediction=pred or "None",
+            ))
 
-        if ext == "npy":
-            image = np.load(image_path)  # nomalized 0-1, C,D,H,W
-            image = transform(image).unsqueeze(0).to(dtype=dtype, device=device)
-        else:
-            img_sitk = sitk.ReadImage(image_path)
-            img_data = sitk.GetArrayFromImage(img_sitk)
+        locals_ = sample["local_vqa"]
+        roots = [q for q in locals_ if q["follow_up"] == -1]
+        id2qs = {}
+        for q in locals_:
+            id2qs.setdefault(q["follow_up"], []).append(q)
 
-            if len(img_data.shape) == 4:
-                print(image_path, img_data.shape)
-                img_data = img_data[1]
+        for root in roots:
+            chain = [root] + id2qs.get(root["id"], [])
 
-            img_data = np.clip(img_data, -160.0, 240.0)
-            img_data = (img_data - np.min(img_data))/ (np.max(img_data) - np.min(img_data))
-            img_data = np.expand_dims(img_data, 0)
+            q_lines = []
+            for idx, q in enumerate(chain, 1):
+                q_line = q["question"].rstrip()
+                if "choices" in q and q["choices"]:
+                    q_line = f"{q_line} Choices: {q['choices']}"
+                q_lines.append(f"{idx}. {q_line}")
+            q_txt = "\n".join(q_lines)
 
-            to_resize = mtf.Resize(resize_size)
-            to_tensor = mtf.ToTensor(dtype=dtype)
-            image = to_tensor(to_resize(img_data)).unsqueeze(0).to(device=device)
+            prompt = build_prompt(q_txt, proj_tokens, tokenizer)
+            input_ids = tokenizer(prompt, return_tensors="pt")["input_ids"].to(device)
 
-            print(image_path, 'ori data shape:', img_data.shape, 'input tensor shape', image.shape)
-            del img_sitk, img_data
-        
-        text_abs_path = item['vqa']
-        with open(text_abs_path) as f:
-            questions = json.load(f) # dict
+            out = model.generate(
+                image, input_ids,
+                max_new_tokens=36, do_sample=True, top_p=0.9, temperature=1.0
+            )
+            pred = tokenizer.decode(out[0], skip_special_tokens=True).replace(prompt, "").strip()
+            pred = format_pred(pred)
 
-        image_tokens = "<im_patch>" * proj_out_num * model.config.multipler
-        for q_item in questions:
-            
-            case_q = {}
+            rows.append(dict(
+                case_id=case_id,
+                scope="local",
+                question_id=root["id"],
+                question=q_txt,
+                prediction=pred or "None",
+            ))
 
-            question = q_item["question"]
-            options = q_item["options"]
-            
-            case_q["question"] = question
-            case_q["options"] = options
+    out_csv = Path(args.model_name_or_path) / "predictions.csv"
+    pd.DataFrame(rows).to_csv(out_csv, index=False)
+    print(f"Saved → {out_csv}")
 
-            choices = "Choices: A. {} B. {} C. {} D. {}".format(options["A"], options["B"], options["C"], options["D"])
-            question = question + ' ' + choices
-
-            if template:
-                conversation = [{  
-                    "role": "system", "content": "You are an AI assistant acting as a radiologist tasked with answering a multiple choice question based on a CT scan."},
-                    {"role": "user", "content": image_tokens + ' ' + question}
-                    # {"role": "user", "content": question}
-                    ]
-                input_txt = tokenizer.apply_chat_template(conversation, tokenize=False)
-            else:
-                input_txt = image_tokens + question
-            input_id = tokenizer(input_txt, return_tensors="pt")['input_ids'].to(device=device)
-
-            generation = model.generate(image, input_id, max_new_tokens=10, do_sample=True, top_p=0.9, temperature=1.0)
-            pred = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
-
-            pred = pred.strip()
-            
-            if len(pred) == 0:
-                pred = random.choice(["A", "B", "C", "D"]) 
-
-            pred = pred[0]
-            if pred not in ["A", "B", "C", "D"] :
-                print(f"Incorrect option: {pred}")
-                pred = random.choice(["A", "B", "C", "D"])
-            
-            case_q["prediction"] = pred[0]
-            case_q["type"] = q_item["type"]
-
-            if with_acc:
-                answer = q_item["answer"]
-                case_q["answer"] = answer
-                if answer[0] == pred:
-                    correct+=1
-                else:
-                    wrongs.append(case_q)
-                total+=1
-            case_["labels"]["qa"].append(case_q)
-
-            if with_acc:
-                print(str(correct / total))
-
-        results["validation"].append(case_)
-
-        with open(path, 'w') as f:
-            json.dump(results, f)
-        
-        wrong_path = path.replace(".json", "_wrong.json")
-        with open(wrong_path, 'w') as f:
-            json.dump(wrongs, f)
-
-    txt_path = path.replace("json", "txt")
-    if with_acc:
-        with open(txt_path, 'w') as file:
-            file.write(str(correct / total))
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

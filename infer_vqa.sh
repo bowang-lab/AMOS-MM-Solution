@@ -11,10 +11,17 @@
 #SBATCH --gres=gpu:a40:1
 
 source /h/junma/.mvlm/bin/activate
-CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29600 infer_vqa.py \
-  --model_name_or_path /scratch/ssd004/datasets/med-img-data/amosmm/trained/paper/phi3_vqa_tt/ \
-  --json_path Data/AMOSMM.json \
-  --image_size 32 256 256 \
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer_vqa.py \
+  --model_name_or_path /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/results/baseline_both  \
+  --json_path /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/validation/val_processed.json \
+  --data_root /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/validation/val_processed \
   --model_max_length 512 \
-  --proj_out_num 256 \
-  --with_acc True
+  --proj_out_num 256 
+
+CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
+  --model_name_or_path /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/results/baseline  \
+  --json_path /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/validation/val_processed.json \
+  --data_root /home/jma/datasets/mohammed/FLARE-Task5-MLLM-3D/validation/val_processed \
+  --model_max_length 768 \
+  --prompt "simple" \
+  --proj_out_num 256
