@@ -1,5 +1,5 @@
-# AMOS-MM-Solution
-This codebase is for our participation in the [MICCAI24 AMOS-MM: Abdominal Multimodal Analysis Challenge](https://www.codabench.org/competitions/3137/).
+# FLARE 2025 3D MLLM Phi3 Baseline
+This repository provides a baseline implementation for the FLARE 2025 3D multimodal medical image challenge.
 
 # Installation
 Requirements `Python >= 3.10.12` and `Python < 3.12` 
@@ -10,30 +10,44 @@ Requirements `Python >= 3.10.12` and `Python < 3.12`
 # Training & Inference
 We provide command line scripts for training on both tasks in the competition (medical report generation and visual question answering) and for doing inference with our post-processing technique.
 
-## Data Preperation
-To prepare the data, a json file needs to be made using the same structure as the one in `Data/AMOSMM.json`. After that is prepared, follow the steps below to trian the model and do inference.
+## 1. Data Preperation
+First clone the HuggingFace repo, where the dataset lives using:
+`git clone https://huggingface.co/datasets/FLARE-MedFM/FLARE-Task5-MLLM-3D`
 
-## Training for MRG and VQA
-After data is prepared, run the following command to train a Llama 3.1 model for report generation.
+Once that is done, we need to pre-process the data. You can do that by using the script:
+
+`python Data/process/process_ct.py --json_in <PATH_TO_DATA_JSON> --nifti_dir <PATH_TO_DATA_DIR> --out_dir <OUTPUT_PATH> --workers <NUM_OF_WORKERS>`
+
+This needs to be applied to both CT-RATE and AMOS datasets, as well as the validation dataset. If you cloned the HuggingFace dataset repo inside the main `AMOS-MM-Solution` directory, then the script for pre-processing the validation set would be:
+
+`python process_ct.py --json_in FLARE-Task5-MLLM-3D/validation/val.json --nifti_dir FLARE-Task5-MLLM-3D/validation/images --out_dir FLARE-Task5-MLLM-3D/validation/val_processed`
+
+## 2. Training 
+
+Once pre-processing is done, you can train a baseline model using:
 
 ```
 PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
-    --model_name_or_path meta-llama/Meta-Llama-3.1-8B-Instruct \
-    --cache_dir "path/to/cache/dir" \
-    --model_type llama \
-    --freeze_llm True \
+    --model_name_or_path microsoft/Phi-3-mini-4k-instruct \
+    --cache_dir <CACHE_DIR> \
+    --model_type phi3 \
+    --lora_enable True \
+    --lora_r 16 \
     --vision_tower vit3d \
-    --pretrain_vision_model "path/to/vision/model" \
+    --pretrain_vision_model <VIT_PATH> \
     --bf16 True \
-    --output_dir "output/dir" \
-    --num_train_epochs 100 \
+    --output_dir results/baseline \
+    --num_train_epochs 75 \
     --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 1 \
     --evaluation_strategy "no" \
     --do_eval False \
     --eval_accumulation_steps 1 \
+    --eval_steps 0.99 \
     --save_strategy "steps" \
-    --save_steps 2000 \
+    --save_steps 20000 \
     --save_total_limit 1 \
     --learning_rate 5e-5 \
     --weight_decay 0. \
@@ -41,32 +55,41 @@ PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed
     --lr_scheduler_type "cosine" \
     --logging_steps 0.001 \
     --gradient_checkpointing False \
-    --dataloader_pin_memory True\
+    --dataloader_pin_memory True \
     --dataloader_num_workers 4 \
     --report_to none \
     --prompt "simple" \
-    --task mrg \
-    --json_path "path/to/json" \
-    --image_size "32, 256, 256" \
+    --task all \
+    --json_path <PATH_TO_AMOS_JSON> <PATH_TO_CT-RATE_JSON> \
+    --data_root <PATH_TO_AMOS_VOLUMES> <PATH_TO_CT-RATE_VOLUMES> \
     --with_template True \
-    --model_max_length 768
+    --image_size "32, 256, 256" \
+    --model_max_length 1024
 ```
-The argument `json_path` should point to the path of the json file we just prepared. Additionally, you have to set the `cache_dir` and `pretrain_vision_model`. For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). We provide additional arguments for this task like `zoom_in`, which uses organ segmentation masks to crop the abdomen based on a specific region (abdomen, chest, or pelvis), and `prompt` which controls the prompt. The "simple" prompt used can be found in `LaMed/src/dataset/prompts.py`.
+For the vision model, we used the 3D ViT in [M3D](https://github.com/BAAI-DCAI/M3D). 
 
-To finetune your model for VQA instead of medical report generation, simple change the `task` argument to vqa. There are additional arguments for VQA, like `only_letter` and `with_reason`.
+To change the LLM used, you have to change the checkpoint path in HuggingFace using the arguemnt `model_name_or_path`.
 
-## Inference
-To do inference for MRG, run the following command:
+The supported models are: `Phi3`, `Llama` famliy, `Gemma` famliy, `Qwen2`, and `Mistral`. If you change `model_name_or_path`, you have to also change `model_type` to the correct model type. 
+
+The baseline uses LoRA fine-tuning for the LLM. You can disable that to fully fine-tune the model using `--lora_enable False`. If you want to freeze the LLM, there is an additional argument `--freeze_llm True`. 
+
+## 3. Inference
+
+NOTE: inference currently only supports Phi3. You need to manually change the model class to support other models.
+
+To do inference for report generation, run the following command:
 ```
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
-  --model_name_or_path /path/to/trained/model \
-  --json_path Data/AMOSMM.json \
+  --model_name_or_path <PATH_TO_CHECKPOINT_DIR>   \
+  --json_path <PATH_TO_VAL_JSON> \
+  --data_root <PATH_TO_VAL_VOLUMES> \
   --model_max_length 768 \
   --prompt "simple" \
-  --post_process "normality" "focused_inference" \
   --proj_out_num 256
 ```
-The argument `post_process` adds two additional steps when inference on the model is done. The first is a knowledge-base normality finding, and the second is a focused inference based on specified questions. You can find the knowledge base at `utils/postprocessor.py`. The ones currently used, especially for the focused inference, are specific to the competition dataset and our submissions, and should be changed depending on the usecase.
+
+After the scripts finishes running, this will generate 2 files at the same path where the model lives, provided in `--model_name_or_path`. The first file is `<NAME_OF_VAL_JSON>.csv`. This file contains the model generated reports and ground truth reports for each example, as well as GREEN score for each region. Any region mentioned in the ground truth report but not in model generated report is assigned a score of zero (false negative). Any region mentioned in the prediction but not the ground truth is compared with a normal ground truth, where the reference report becomes `f"{region} is normal."` The pipeline for validation can be found at `generate_green_score.py`.
 
 To do VQA inference, run the following command:
 ```
@@ -77,8 +100,61 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --model_max_length 512 \
   --proj_out_num 256
 ```
-An additional argument `with_acc` is used to control whether to also calculate the VQA accuracy. You need to have the correct answers in the same format as the competiton for this to work. 
+
+This will generate the `predictions.csv` file. This file will contain the global and local VQA predictions. NOTE: the local predictions need to be in a comma-separated format for each chain. For example, the answer for the following chain:
+
+```
+{
+    "id": 1,
+    "follow_up": -1,
+    "question": "Is there evidence of cirrhosis in the liver?",
+    "type": "finding_identification"
+},
+{
+    "id": 2,
+    "follow_up": 1,
+    "question": "Which of the following features are present in the liver?",
+    "type": "appearance_or_pattern",
+    "choices": [
+      "Small volume, uneven surface, disproportionate lobes, widened fissures",
+      "Uniform size, smooth surface, normal fissures",
+      "Enlarged volume, smooth surface, narrowed fissures",
+      "None of the above"
+     ]
+}
+```
+
+Could be:
+`Yes, Enlarged volume, smooth surface, narrowed fissures`.
+
+## Results
+
+The expected baseline resutls are:
+
+Report Generation:
+
+```
+{
+    "liver": 0.24076031746031748,
+    "biliary system": 0.48416762931587704,
+    "spleen": 0.5690602836879433,
+    "pancreas": 0.5350826044703595,
+    "kidneys": 0.22434423813734167,
+    "gastrointestinal tract": 0.07610105074893808,
+    "lymphatic system": 0.4945972495088409,
+    "abdominal cavity and peritoneum": 0.31478494623655917,
+    "endocrine system": 0.2296228710462287,
+    "blood vessels": 0.10157232704402513,
+    "musculoskeletal system": 0.4254729288975865,
+    "lungs and pleura": 0.2141898823021273,
+    "respiratory tract": 0.7048872180451128,
+    "heart": 0.6663230240549824,
+    "mediastinum": 0.5191605839416059,
+    "esophagus": 0.6625850340136055,
+    "breast tissue": 0.0,
+    "diaphragm": 0.0
+}
+```
 
 # Acknowledgements
-* We highly appreciate all the challenge organizers of the MICCAI24 AMOS-MM challenge.
 * This codebase is built upon the M3D repository, so we gracefully acknowledge the authors for their work. 
