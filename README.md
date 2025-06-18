@@ -77,6 +77,9 @@ The supported models are: `Phi3`, `Llama` famliy, `Gemma` famliy, `Qwen2`, and `
 The baseline uses LoRA fine-tuning for the LLM. You can disable that to fully fine-tune the model using `--lora_enable False`. If you want to freeze the LLM, there is an additional argument `--freeze_llm True`. 
 
 ## 3. Inference
+
+NOTE: inference currently only supports Phi3. You need to manually change the model class to support other models.
+
 To do inference for report generation, run the following command:
 ```
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
@@ -88,7 +91,7 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --proj_out_num 256
 ```
 
-After the scripts finishes running, this will generate 2 files at the same path where the model lives, provided in `--model_name_or_path`. The first file is `<NAME_OF_VAL_JSON>.csv`. This file contains the model generated reports and ground truth reports for each example, as well as GREEN score for each region. Any region mentioned in the ground truth report but not in model generated report is assigned a score of zero (false negative). Any region mentioned in the prediction but not the ground truth is compared with a normal ground truth, where the reference report becomes f"{region} is normal." The pipeline for validation can be found at `generate_green_score.py`.
+After the scripts finishes running, this will generate 2 files at the same path where the model lives, provided in `--model_name_or_path`. The first file is `<NAME_OF_VAL_JSON>.csv`. This file contains the model generated reports and ground truth reports for each example, as well as GREEN score for each region. Any region mentioned in the ground truth report but not in model generated report is assigned a score of zero (false negative). Any region mentioned in the prediction but not the ground truth is compared with a normal ground truth, where the reference report becomes `f"{region} is normal."` The pipeline for validation can be found at `generate_green_score.py`.
 
 To do VQA inference, run the following command:
 ```
@@ -99,6 +102,32 @@ CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port
   --model_max_length 512 \
   --proj_out_num 256
 ```
+
+This will generate the `predictions.csv` file. This file will contain the global and local VQA predictions. NOTE: the local predictions need to be in a comma separated format for each chain. For example, the answer for the following chain:
+
+```
+{
+"id": 1,
+"follow_up": -1,
+"question": "Is there evidence of cirrhosis in the liver?",
+"type": "finding_identification"
+},
+{
+"id": 2,
+"follow_up": 1,
+"question": "Which of the following features are present in the liver?",
+"type": "appearance_or_pattern",
+"choices": [
+  "Small volume, uneven surface, disproportionate lobes, widened fissures",
+  "Uniform size, smooth surface, normal fissures",
+  "Enlarged volume, smooth surface, narrowed fissures",
+  "None of the above"
+    ]
+}
+```
+
+Could be:
+`Yes, Enlarged volume, smooth surface, narrowed fissures`.
 
 ## Results
 
