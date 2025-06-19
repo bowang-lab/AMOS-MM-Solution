@@ -127,6 +127,8 @@ This will generate the `predictions.csv` file. This file will contain the global
 Could be:
 `Yes, Enlarged volume, smooth surface, narrowed fissures`.
 
+We are also sharing the script used for the VQA evaluation at `eval_vqa.py`, to ensure that your output follows the inteded format. 
+
 ## Results
 
 The expected baseline resutls are:
@@ -153,6 +155,14 @@ Report Generation:
     "esophagus": 0.6625850340136055,
     "breast tissue": 0.0,
     "diaphragm": 0.0
+}
+```
+
+VQA:
+```
+{
+  "global_accuracy": 0.179969,
+  "local_accuracy": 0.569123
 }
 ```
 
