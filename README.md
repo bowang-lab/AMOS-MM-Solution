@@ -16,7 +16,7 @@ To re-run our and expand on our experimentations, you have to first download the
 ## Data Preperation
 To prepare the dataset, a json file needs to be made using the same structure as the one in `Data/dataset.json`. To do that, you can run the script `prepare_data.py`. Specifically, you can run the code command below:
 
-```python
+```bash
 python prepare_data.py \
   --report_json <PATH_TO_report_generation_train_val.json> \
   --vqa_json <PATH_TO_vqa_train_val.json> \
@@ -30,7 +30,7 @@ After that is prepared, follow the steps below to trian the model and do inferen
 ## Training for MRG and VQA
 After data is prepared, run the following command to train a Llama 3.1 model for report generation.
 
-```
+```bash
 PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29500 LaMed/src/train/amos_train.py \
     --version v0 \
     --model_name_or_path meta-llama/Meta-Llama-3.1-8B-Instruct \
@@ -75,7 +75,7 @@ Additionally, you can also train a triplet model to perform Binary-based Questio
 
 You can call the script using:
 
-```python
+```bash
 python scripts/triplet_extraction.py \
   --json_path <PATH_TO_DATASET_JSON> \
   --openai_key <OPEN_AI_KEY>
@@ -87,7 +87,7 @@ We can then train the triplet model using the same training command above, but u
 
 ## Inference
 To do inference for MRG, run the following command:
-```
+```bash
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer.py \
   --model_name_or_path <PATH_TO_TRAINED_MODEL> \
   --json_path <PATH_TO_DATA_JSON> \
@@ -101,7 +101,7 @@ Note: if you didn't train a triplet model, the you should remove the "bq" argume
 The argument `post_process` adds two additional steps when inference on the model is done. The first is a knowledge-base normality finding, and the second is a focused inference based on specified questions. You can find the knowledge base at `utils/postprocessor.py`. The ones currently used, especially for the focused inference, are specific to the competition dataset and our submissions, and should be changed depending on the use-case.
 
 To do VQA inference, run the following command:
-```
+```bash
 CUDA_VISIBLE_DEVICES="0" accelerate launch --num_processes 1 --main_process_port 29500 infer_vqa.py   \
   --model_name_or_path <PATH_TO_TRAINED_MODEL> \
   --json_path <PATH_TO_DATA_JSON> \
