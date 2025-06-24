@@ -11,6 +11,8 @@ from LaMed.src.model.language_model import LamedLlamaForCausalLM, LamedPhi3ForCa
 from LaMed.src.train.lamed_trainer import LaMedTrainer
 from utils import parse_custom_tuple, print_trainable_parameters, process_crops
 
+# transformers.models.llama.tokenization_llama 
+
 torch.cuda.set_device(0)
 
 local_rank = None
@@ -262,10 +264,16 @@ def main():
     )
 
     # Define and add special tokens
-    special_token = {"additional_special_tokens": ["<im_patch>", "<bx_start>", "<bx_end>"]}
+    n = special_token = {"additional_special_tokens": ["<im_patch>", "<bx_start>", "<bx_end>"]}
     tokenizer.add_special_tokens(
         special_token
     )
+
+    print(tokenizer)
+    print(tokenizer.__class__.__module__)
+
+    print(f"added {n} new tokens")                    # → 3
+    print(tokenizer.convert_tokens_to_ids("<im_patch>"))
 
     if tokenizer.unk_token is not None and tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.unk_token

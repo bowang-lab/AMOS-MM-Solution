@@ -109,7 +109,7 @@ def all_items_in_string(lst, string):
     return all(item.lower() in string_lower for item in lst if isinstance(item, str))
 
 class PostProcessor():
-    def __init__(self, results, post_process_list, dataset=None, organs=["abdomen", "chest", "pelvis"]):
+    def __init__(self, results, post_process_list, dataset=None, organs=["abdomen", "chest", "pelvis"], triplet_model_path=None):
         self.results = results
         self.post_process_list = post_process_list
         self.organs = organs
@@ -128,16 +128,13 @@ class PostProcessor():
             import torch
             from LaMed.src.model.language_model import LamedPhi3ForCausalLM
             from transformers import AutoTokenizer
-            triplet_model_path = "/checkpoint/datasets.damaged/med-img-data/amosmm/trained/paper/triplet_model_4"
             self.model = LamedPhi3ForCausalLM.from_pretrained(
                 triplet_model_path,
-                cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
                 torch_dtype=torch.bfloat16,
                 device_map='auto',
                 trust_remote_code=True)
             self.tokenizer = AutoTokenizer.from_pretrained(
                 triplet_model_path,
-                cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
                 model_max_length=128,
                 padding_side="right",
                 use_fast=False,
@@ -206,6 +203,7 @@ class PostProcessor():
                 for answer, (finding_key, triplet_value) in zip(answers_list, zip(common_findings_list, common_triplets_list)):
                     if any(all_items_in_string(triplet_value, part) for part in report_text.split('.')):
                         continue
+                    
                     # Append the finding based on the answer (True selects the first item)
                     finding_to_append = finding_key[0] if answer else finding_key[1]
                     report_text += f" {finding_to_append}"

@@ -1,19 +1,3 @@
-#!/bin/bash
-
-#SBATCH --job-name=vqa
-#SBATCH --output=runs/vqa-log-%J.txt
-#SBATCH --ntasks=8
-#SBATCH --time=1-20:00:00
-#SBATCH --mem=50G
-#SBATCH -N 1
-#SBATCH --gres=gpu:a100:1
-#SBATCH --partition=a100
-#SBATCH --qos=a100_bowang
-
-source /h/junma/.mllm/bin/activate
-
-# run "accelerate config" first!
-JOB_ID=$SLURM_JOB_ID
 PYTHONPATH=. accelerate launch --num_processes 1 --main_process_port 29525 LaMed/src/train/amos_train.py \
     --version v0 \
     --model_name_or_path microsoft/Phi-3-mini-4k-instruct \

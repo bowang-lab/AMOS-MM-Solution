@@ -5,3 +5,6 @@ Data/AMOSMM_corr.json
 dataset_withsplit.json
 archive/
 .mllm/
+
+GREEN_model/
+CLEAN_model/

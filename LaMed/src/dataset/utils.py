@@ -55,11 +55,13 @@ def triplet_prompt(data, organ=None, standardize=False):
         indices_found = [False for _ in range(len(list(COMMON_TRIPLET_STANDARD[organ].keys())))]
         labels_for_indices = [False for _ in range(len(indices_found))]
 
+    if isinstance(data, str):
+        data = {}
+
     for _, values in data.items():
         entity, position, exist = values
         
         found_for_this_example = False
-
         if standardize and organ in COMMON_TRIPLET_STANDARD.keys():
             common_triplets = COMMON_TRIPLET_STANDARD[organ]
             for j, (triplet, other_names) in enumerate(common_triplets.items()):
@@ -75,6 +77,7 @@ def triplet_prompt(data, organ=None, standardize=False):
             labels.append(str(exist))
 
     if standardize and organ in COMMON_TRIPLET_STANDARD.keys():
+        common_triplets = COMMON_TRIPLET_STANDARD[organ]
         for j, found in enumerate(indices_found):
             triplets = list(common_triplets.keys())
             triplet = triplets[j]

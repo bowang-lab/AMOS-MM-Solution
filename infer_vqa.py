@@ -18,9 +18,6 @@ from generate_green_score import GenerateGreenScore
 import pandas as pd
 import random
 
-
-
-
 def seed_everything(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
@@ -33,11 +30,11 @@ def seed_everything(seed):
 def main():
     parser = argparse.ArgumentParser(description='Script configuration')
     parser.add_argument('--image_size', type=int, nargs=3, default=(32, 256, 256), help='Image size as a tuple (C, H, W)')
-    parser.add_argument('--model_name_or_path', type=str, default='/scratch/ssd004/scratch/mohammed/results/hilt_64_320_1024', help='Model path or name')
-    parser.add_argument('--json_path', type=str, default="/scratch/ssd004/scratch/mohammed/AMOSMM/AMOSMMVal.json", help='Path to JSON file')
+    parser.add_argument('--model_name_or_path', type=str, help='Model path or name')
+    parser.add_argument('--json_path', type=str, help='Path to JSON file')
     parser.add_argument('--model_max_length', type=int, default=768, help='Maximum model length')
     parser.add_argument('--proj_out_num', type=int, default=512, help='Project output number')
-    parser.add_argument('--image_path', type=str, default="/scratch/ssd004/datasets/med-img-data/amosmm/ori_nii/imagesVa", help='Path to the image directory')
+    parser.add_argument('--image_path', type=str, help='Path to the image directory')
     parser.add_argument("--with_acc", type=bool, default=False)
     
     args = parser.parse_args()
@@ -71,27 +68,23 @@ def main():
     if "llama" in model_name_or_path:
         model = LamedLlamaForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
             torch_dtype=dtype,
             device_map='auto',
             trust_remote_code=True)
     elif "gemma" in model_name_or_path:
         model = LamedGemmaForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
             trust_remote_code=True,
             torch_dtype=dtype,
             device_map='auto')
     else:
         model = LamedPhi3ForCausalLM.from_pretrained(
             model_name_or_path,
-            cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
             torch_dtype=dtype,
             device_map='auto',
             trust_remote_code=True)
     tokenizer = AutoTokenizer.from_pretrained(
         model_name_or_path,
-        cache_dir='/scratch/ssd004/datasets/med-img-data/amosmm/trained/cache/',
         model_max_length=model_max_length,
         padding_side="right",
         use_fast=False,
