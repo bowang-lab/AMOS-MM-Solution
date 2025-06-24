@@ -22,11 +22,11 @@ torchvision==0.17.1
 tqdm==4.66.2
 transformers==4.44.2
 tweepy==4.14.0
+RaTEScore==0.4.0
 scikit-image
 setuptools
 scikit-learn
 sentence-transformers
-RaTEScore
 medspacy
 sentencepiece
 protobuf

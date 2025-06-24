@@ -123,7 +123,7 @@ class PostProcessor():
                 self.results["green_" + organ] = [-1] * len(self.results["green_" + organ])
                 self.results["explanation_" + organ] = [""] * len(self.results["explanation_" + organ])
 
-        if "focused_inference" in post_process_list:
+        if "bq" in post_process_list:
             # get triplet model and tokenizer
             import torch
             from LaMed.src.model.language_model import LamedPhi3ForCausalLM
