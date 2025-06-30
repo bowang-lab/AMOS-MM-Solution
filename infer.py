@@ -156,7 +156,7 @@ def main():
     data_args.prompt = prompt
     data_args.zoom_in = zoom
     data_args.organs = organs
-    data_args.with_seg_mask = True
+    data_args.with_seg_mask = model.config.with_seg
     data_args.with_template= with_template
     data_args.data_img_size = resize_size
 
@@ -172,9 +172,12 @@ def main():
             
             image = item["image"][organ].unsqueeze(0).to(device, dtype=dtype)
             input_id = item["input_id"][organ].to(device)
-            # segs = item["segs"].unsqueeze(0).to(device, dtype=dtype)
+            segs = item["segs"]
 
-            generation = model.generate(image, input_id, segs=None, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
+            if data_args.with_seg_mask:
+                segs = segs.unsqueeze(0).to(device, dtype=dtype)
+
+            generation = model.generate(image, input_id, segs=segs, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
             generated_texts = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
             findings_match = re.search(pattern, generated_texts, re.DOTALL)
             generated_texts = findings_match.group(1).strip() if findings_match else generated_texts.strip()
