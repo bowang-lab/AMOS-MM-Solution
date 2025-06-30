@@ -6,6 +6,7 @@ from monai.transforms import Compose, ToTensor, Resize
 import torch
 from tqdm import tqdm
 
+# common triplets for BQ
 COMMON_TRIPLETS = {
     'chest': {
         ("Nodules are seen in the lungs.", "No nodules are seen in the lungs."): ['nodules', 'lungs', None],
@@ -36,6 +37,8 @@ COMMON_TRIPLETS = {
     }
 }
 
+
+# naive normality
 CHEST_MAPPING = {
     ("lung fields",): "The Lung fields are clear and normal with no evidence of consolidation",
     ("heart",): "The heart size and shape is normal and within limits. The heart is normal",
@@ -109,7 +112,7 @@ def all_items_in_string(lst, string):
     return all(item.lower() in string_lower for item in lst if isinstance(item, str))
 
 class PostProcessor():
-    def __init__(self, results, post_process_list, dataset=None, organs=["abdomen", "chest", "pelvis"], triplet_model_path=None):
+    def __init__(self, results, post_process_list, dataset=None, organs=["chest"], triplet_model_path=None):
         self.results = results
         self.post_process_list = post_process_list
         self.organs = organs
@@ -128,6 +131,10 @@ class PostProcessor():
             import torch
             from LaMed.src.model.language_model import LamedPhi3ForCausalLM
             from transformers import AutoTokenizer
+
+            if not triplet_model_path:
+                raise Exception("Using BQ with no triplet model provided.")
+
             self.model = LamedPhi3ForCausalLM.from_pretrained(
                 triplet_model_path,
                 torch_dtype=torch.bfloat16,
@@ -141,7 +148,7 @@ class PostProcessor():
                 trust_remote_code=True
             )
 
-    def focused_inference(self):
+    def BQ(self):
         # Prepare image paths and names
         data_list = [item["image"] for item in self.dataset.data_list]
         names = self.results["names"]
@@ -194,6 +201,7 @@ class PostProcessor():
                     do_sample=False, top_p=0.9, temperature=1
                 )
                 generation = self.tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
+
                 answers_list = string_to_list(generation)
 
                 common_triplets_list = list(common_triplets.values())
@@ -201,6 +209,10 @@ class PostProcessor():
 
                 # Update the report based on the answers
                 for answer, (finding_key, triplet_value) in zip(answers_list, zip(common_findings_list, common_triplets_list)):
+
+                    if answer:
+                        print(image_path, finding_key[0])
+
                     if any(all_items_in_string(triplet_value, part) for part in report_text.split('.')):
                         continue
                     
@@ -227,9 +239,9 @@ class PostProcessor():
             ]
 
     def run(self):
-        if "focused_inference" in self.post_process_list:
-            print("Doing focused inference")
-            self.focused_inference()
+        if "bq" in self.post_process_list:
+            print("Doing binary-based questioning")
+            self.BQ()
 
         if "normality" in self.post_process_list:
             print("Doing normality")

@@ -71,6 +71,7 @@ def main():
     parser.add_argument('--organs', metavar='N', type=str, nargs='+', default=["abdomen", "pelvis", "chest"])
     parser.add_argument('--zoom', type=bool, default=False)
     parser.add_argument('--post_process', metavar='N', type=str, nargs='+', default=[])
+    parser.add_argument('--triplet_model_path', type=str, default=None)
 
     args = parser.parse_args()
 
@@ -79,64 +80,56 @@ def main():
     device = torch.device('cuda')
     dtype = torch.bfloat16  # or bfloat16, float16, float32
     with_template = True
-    green = True   
 
     for key, value in vars(args).items():
         globals()[key] = value        
     
-    # if "llama" in model_name_or_path:
-    #     model = LamedLlamaForCausalLM.from_pretrained(
-    #         model_name_or_path,
-    #         cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #         torch_dtype=dtype,
-    #         device_map='auto',
-    #         trust_remote_code=True)
-    # elif "gemma" in model_name_or_path:
-    #     model = LamedGemmaForCausalLM.from_pretrained(
-    #         model_name_or_path,
-    #         cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #         trust_remote_code=True,
-    #         torch_dtype=dtype,
-    #         device_map='auto')
-    # elif "qwen" in model_name_or_path:
-    #     model = LamedQwen2ForCausalLM.from_pretrained(
-    #         model_name_or_path,
-    #         cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #         trust_remote_code=True,
-    #         torch_dtype=dtype,
-    #         device_map='auto')
-    # elif "mistral" in model_name_or_path:
-    #     model = LamedMistralForCausalLM.from_pretrained(
-    #         model_name_or_path,
-    #         cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #         trust_remote_code=True,
-    #         torch_dtype=dtype,
-    #     device_map='auto')
-    # else:
-    #     print("PHU")
-    #     model = LamedPhi3ForCausalLM.from_pretrained(
-    #         model_name_or_path,
-    #         cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #         torch_dtype=dtype,
-    #         device_map='auto',
-    #         trust_remote_code=True)
+    if "llama" in model_name_or_path:
+        model = LamedLlamaForCausalLM.from_pretrained(
+            model_name_or_path,
+            torch_dtype=dtype,
+            device_map='auto',
+            trust_remote_code=True)
+    elif "gemma" in model_name_or_path:
+        model = LamedGemmaForCausalLM.from_pretrained(
+            model_name_or_path,
+            trust_remote_code=True,
+            torch_dtype=dtype,
+            device_map='auto')
+    elif "qwen" in model_name_or_path:
+        model = LamedQwen2ForCausalLM.from_pretrained(
+            model_name_or_path,
+            trust_remote_code=True,
+            torch_dtype=dtype,
+            device_map='auto')
+    elif "mistral" in model_name_or_path:
+        model = LamedMistralForCausalLM.from_pretrained(
+            model_name_or_path,
+            trust_remote_code=True,
+            torch_dtype=dtype,
+        device_map='auto')
+    else:
+        model = LamedPhi3ForCausalLM.from_pretrained(
+            model_name_or_path,
+            torch_dtype=dtype,
+            device_map='auto',
+            trust_remote_code=True)
 
-    # tokenizer = AutoTokenizer.from_pretrained(
-    #     model_name_or_path,
-    #     cache_dir='/home/jma/Documents/mohammed/amosmm/cache',
-    #     model_max_length=model_max_length,
-    #     padding_side="right",
-    #     use_fast=False,
-    #     trust_remote_code=True
-    # )
-    # model = model.eval()
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name_or_path,
+        model_max_length=model_max_length,
+        padding_side="right",
+        use_fast=False,
+        trust_remote_code=True
+    )
+    model = model.eval()
 
-    # if model.config.any_res_image_size:
-    #     resize_size = model.config.any_res_image_size
-    # else:
-    #     resize_size = model.config.image_size
+    if model.config.any_res_image_size:
+        resize_size = model.config.any_res_image_size
+    else:
+        resize_size = model.config.image_size
 
-    # proj_out_num = args.proj_out_num * model.config.multipler
+    proj_out_num = args.proj_out_num * model.config.multipler
 
     args_dict = vars(args)
     print("Arguments received:")
@@ -145,73 +138,70 @@ def main():
 
     tag = json_path.split(os.sep)[-1].split(".")[0]
     path = model_name_or_path + os.sep + f'{tag}.csv'
-    results = pd.read_csv(path)
+    
+    if os.path.exists(path):
+        results = pd.read_csv(path)
+    else:
+        results = OrderedDict()
+        results['names'] = []
+        for organ in organs:
+            results[f'generated-{organ}'] = []
+            results[f'gt-{organ}'] = []
 
-    # results = OrderedDict()
-    # results['names'] = []
-    # for organ in organs:
-    #     results[f'generated-{organ}'] = []
-    #     results[f'gt-{organ}'] = []
+    data_args = Namespace()
+    data_args.proj_out_num = proj_out_num
+    data_args.json_path = json_path
+    data_args.data_root = ""
+    data_args.max_length = model_max_length
+    data_args.prompt = prompt
+    data_args.zoom_in = zoom
+    data_args.organs = organs
+    data_args.with_seg_mask = True
+    data_args.with_template= with_template
+    data_args.data_img_size = resize_size
 
-    # data_args = Namespace()
-    # data_args.proj_out_num = proj_out_num
-    # data_args.json_path = json_path
-    # data_args.data_root = ""
-    # data_args.max_length = model_max_length
-    # data_args.prompt = prompt
-    # data_args.zoom_in = zoom
-    # data_args.organs = organs
-    # data_args.with_seg_mask = True
-    # data_args.with_template= with_template
-    # data_args.data_img_size = resize_size
+    dataset = AMOSCapDataset(data_args, tokenizer, mode='validation')
 
-    # dataset = AMOSCapDataset(data_args, tokenizer, mode='validation')
+    for item in tqdm(dataset):
+        image_name = item["image_name"]
 
-    # for item in tqdm(dataset):
-    #     image_name = item["image_name"]
+        organs_ = ["abdomen", "pelvis", "chest"]
+        organs_ = item["answer"].keys()
 
-    #     organs_ = ["abdomen", "pelvis", "chest"]
-    #     if green:
-    #         organs_ = item["answer"].keys()
-
-    #     for organ in organs_:
+        for organ in organs_:
             
-    #         image = item["image"][organ].unsqueeze(0).to(device, dtype=dtype)
-    #         input_id = item["input_id"][organ].to(device)
-    #         # segs = item["segs"].unsqueeze(0).to(device, dtype=dtype)
+            image = item["image"][organ].unsqueeze(0).to(device, dtype=dtype)
+            input_id = item["input_id"][organ].to(device)
+            # segs = item["segs"].unsqueeze(0).to(device, dtype=dtype)
 
-    #         generation = model.generate(image, input_id, segs=None, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
-    #         generated_texts = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
-    #         findings_match = re.search(pattern, generated_texts, re.DOTALL)
-    #         generated_texts = findings_match.group(1).strip() if findings_match else generated_texts.strip()
-    #         results['generated-' + str(organ)].append(generated_texts)
+            generation = model.generate(image, input_id, segs=None, max_new_tokens=512, do_sample=False, top_p=0.9, temperature=1)
+            generated_texts = tokenizer.batch_decode(generation, skip_special_tokens=True)[0]
+            findings_match = re.search(pattern, generated_texts, re.DOTALL)
+            generated_texts = findings_match.group(1).strip() if findings_match else generated_texts.strip()
+            results['generated-' + str(organ)].append(generated_texts)
 
-    #         if green:
-    #             gt_text = item["answer"][organ]
-    #             results['gt-' + str(organ)].append(gt_text)
-    #         else:
-    #             results['gt-' + str(organ)].append("")
+            gt_text = item["answer"][organ]
+            results['gt-' + str(organ)].append(gt_text)
 
-    #     missing_organs = [o for o in organs if o not in organs_]
-    #     for m_organ in missing_organs:
-    #         results['gt-' + str(m_organ)].append("")
-    #         results['generated-' + str(m_organ)].append("")
+        missing_organs = [o for o in organs if o not in organs_]
+        for m_organ in missing_organs:
+            results['gt-' + str(m_organ)].append("")
+            results['generated-' + str(m_organ)].append("")
 
-    #     results['names'].append(image_name)
-    #     results_df = pd.DataFrame(results)
-    #     results_df.to_csv(path, index=False)
+        results['names'].append(image_name)
+        results_df = pd.DataFrame(results)
+        results_df.to_csv(path, index=False)
     
     if len(post_process) > 0:
         print("Using post processing methods:", post_process)
-        pp = PostProcessor(results, post_process, dataset)
+        pp = PostProcessor(results, post_process, dataset, triplet_model_path=args.triplet_model_path)
         results = pp.run()
         results_df = pd.DataFrame(results)
         results_df.to_csv(path, index=False)
 
-    if green:
-        print("Generating Green")
-        g = GenerateGreenScore(path, cache_dir="./GREEN_model", organs=organs)
-        results = g.run()
+    print("Generating Green")
+    g = GenerateGreenScore(path, cache_dir="./GREEN_model", organs=organs)
+    results = g.run()
 
     bleu_scores = {'abdomen': [], 'chest': [], 'pelvis': []}
     rouge_scores = {'abdomen': [], 'chest': [], 'pelvis': []}

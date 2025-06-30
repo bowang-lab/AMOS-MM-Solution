@@ -544,7 +544,6 @@ class AMOSImpressions2Findings(Dataset):
     def __getitem__(self, idx):
         max_tries = 10
         for _ in range(max_tries):
-            # try:                
             data = self.data_list[idx]
             text_abs_path = data["text"]
             
@@ -611,10 +610,6 @@ class AMOSImpressions2Findings(Dataset):
             }
 
             return ret
-            # except Exception as e:
-            #     print(f"Error in __getitem__ at index {idx}: {e}, name: {self.data_list[idx]}")
-            #     idx = random.randint(0, len(self.data_list) - 1)
-
 
 class UniDatasets(Dataset):
     def __init__(self, args, tokenizer, mode='train', **kwargs):

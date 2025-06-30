@@ -7,8 +7,7 @@ import json
 import re
 
 class GenerateGreenScore:
-    def __init__(self, csv_path, cache_dir=None, save_every=10, organs=["chest"]): 
-        # ["abdomen", "chest", "pelvis"]
+    def __init__(self, csv_path, cache_dir=None, save_every=10, organs=["abdomen", "chest", "pelvis"]): 
         self.csv_path = csv_path
         self.save_every = save_every
         self.organs = organs
