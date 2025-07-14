@@ -195,3 +195,10 @@ utils/postprocessor.py
 - We thank the organizers of the MICCAI24 AMOS-MM challenge for their efforts.
 - This codebase builds upon the [M3D repository](https://github.com/BAAI-DCAI/M3D), and we gratefully acknowledge its authors.
 
+## Bibtex
+@article{baharoon2025exploring,
+  title={Exploring the Design Space of 3D MLLMs for CT Report Generation},
+  author={Baharoon, Mohammed and Ma, Jun and Fang, Congyu and Toma, Augustin and Wang, Bo},
+  journal={arXiv preprint arXiv:2506.21535},
+  year={2025}
+}
