@@ -197,10 +197,11 @@ utils/postprocessor.py
 
 ## Bibtex
 ```
-@article{baharoon2025exploring,
-  title={Exploring the Design Space of 3D MLLMs for CT Report Generation},
-  author={Baharoon, Mohammed and Ma, Jun and Fang, Congyu and Toma, Augustin and Wang, Bo},
-  journal={arXiv preprint arXiv:2506.21535},
-  year={2025}
+@InProceedings{ Bah_Exploring_MICCAI2025,
+   author = { Baharoon, Mohammed and Ma, Jun and Fang, Congyu and Toma, Augustin and Wang, Bo },
+   title = { { Exploring the Design Space of 3D MLLMs for CT Report Generation } }, 
+   booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
+   year = {2025},
+   publisher = {Springer Nature Switzerland}
 }
 ```
